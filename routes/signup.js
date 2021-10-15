@@ -1,30 +1,33 @@
 var express = require('express');
 var router = express.Router();
 var user = require('../models/user');
+var bcrypt = require('bcrypt');
 
 router.get('/signup', (req, res, nxt) => {
     res.render('signup');
 });
 
 
-router.post('/signup', (req, res, next) => {
-    var email = req.body.email;
-    var password = req.body.password;
-    var name = req.body.name;
+router.post('/signup', async (req, res, next) => {
+    const { name, email, password } = req.body;
     user.findOne({ email: email }, function (err, data) {
         if (data) {
             res.render('signup', { message: "* Tài khoản đã tồn tại" })
-        }
-        else {
-            var newUser = new user();
-            newUser.email = email;
-            newUser.name = name;
-            newUser.role = "user";
-            newUser.password = newUser.encryptPassword(password);
-            newUser.save();
-            res.redirect('/signin');
+            return;
         }
     })
+
+    const hashPassword = await bcrypt.hash(password, 10);
+    const newUser = new user({
+        name: name,
+        email: email,
+        role: "user",
+        password: hashPassword
+    })
+    newUser.save();
+    res.redirect('/signin');
+
+
 });
 
 

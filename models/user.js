@@ -1,6 +1,4 @@
 
-var bcrypt = require('bcrypt');
-
 var mongoose = require('mongoose');
 
 // định nghĩ cấu trúc user model
@@ -13,12 +11,6 @@ var schema = new Schema({
     password: { type: String, required: true }
 });
 
-schema.methods.encryptPassword = function (password) {
-    return bcrypt.hashSync(password, 10);
-}
-schema.methods.authPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
-}
 
 module.exports = mongoose.model('user', schema);
 
