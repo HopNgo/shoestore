@@ -1,0 +1,69 @@
+<main>
+
+    <!-- sản phẩm mới nhất start  -->
+
+    <section class="latest-products">
+        <section class="filter">
+            <p>Bộ lọc<i class="fas fa-chevron-down"></i></p>
+            <ul>
+                <li>Giày Adidas</li>
+                <li>Giày Nike</li>
+                <li>Giày Converse</li>
+                <li>Giày Nam</li>
+                <li>Giày Nữ</li>
+            </ul>
+        </section>
+        <h1>Giày mới nhất</h1>
+        <hr>
+        <div class="product-list">
+            {{#each products}}
+            <div class="product-item">
+                <img src="{{this.img}}" alt="">
+                <h3 class="product-name">{{this.name}}</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">
+                    <span class="new">{{this.costNew}}.000đ</span>
+                    <span class="old">{{this.costOld}}.000đ</span>
+                </div>
+                <button>
+                    <a href="/signin">Mua ngay</a>
+                </button>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="pages">
+            <ul>
+                <li>
+                    <button>&lt;</button>
+                </li>
+                <li>
+                    <button class="active">1</button>
+                </li>
+                <li>
+                    <button>2</button>
+                </li>
+                <li>
+                    <button>3</button>
+                </li>
+                <li>
+                    <button>...</button>
+                </li>
+                <li>
+                    <button>7</button>
+                </li>
+                <li>
+                    <button>&gt;</button>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- sản phẩm mới nhất end  -->
+
+</main>

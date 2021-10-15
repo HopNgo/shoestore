@@ -1,0 +1,117 @@
+@media screen and (min-width: 64em) and (max-width: 85.3125em) {
+  main .latest-products .filter {
+    left: 800px;
+  }
+}
+
+@media screen and (min-width: 48em) and (max-width: 63.9375em) {
+  main .latest-products .filter {
+    left: 600px;
+  }
+}
+/* Mobile */
+
+@media only screen and (min-width: 25em) and (max-width: 47.9375em) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  header {
+    display: none;
+  }
+
+  main .latest-products .filter {
+    left: 280px;
+    top: -10px;
+  }
+
+  /* Sản phẩm mới nhất */
+
+  main > .latest-products h1 {
+    font-size: 24px;
+    text-align: left;
+    padding: 0 10px;
+  }
+  main > .latest-products .product-list {
+    margin: 20px 0px;
+  }
+  main > .latest-products .product-list .product-item {
+    width: calc(calc(100% / 2) - 20px);
+    margin: 20px 10px;
+    min-height: 320px;
+  }
+  main > .latest-products .product-list .product-item:hover {
+    opacity: 0.5;
+  }
+
+  main .latest-products > .pages > ul button {
+    padding: 4px 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  main .latest-products > .pages {
+    position: absolute;
+    right: 0;
+    transform: translateX(-10%);
+  }
+}
+
+@media only screen and (max-width: 24.9375em) {
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  header {
+    display: none;
+  }
+
+  main .latest-products .filter {
+    left: 260px;
+    top: 0px;
+  }
+
+  /* Sản phẩm mới nhất */
+
+  main > .latest-products h1 {
+    font-size: 24px;
+    text-align: left;
+    padding: 0 10px;
+  }
+  /* Sản phẩm mới nhất  start*/
+  main > .latest-products h1 {
+    font-size: 28px;
+  }
+  main > .latest-products .product-list {
+    margin: 30px 20px;
+  }
+  main > .latest-products .product-list .product-item {
+    width: 100%;
+    margin: 20px 0;
+    min-height: 320px;
+    background-color: white;
+  }
+
+  main .latest-products > .pages {
+    transform: translateX(-20%);
+  }
+  main .latest-products > .pages > ul button {
+    padding: 4px 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  main .latest-products > .pages > ul button:hover {
+    background-color: var(--primary-color);
+  }
+
+  /* Sản phẩm mới nhất end */
+}

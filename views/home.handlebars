@@ -1,0 +1,150 @@
+<div class="banner">
+    <img src="./img/banner.png" alt="">
+    <div class="content">
+        <p><span>50% </span>Discount</p>
+        <h1>Autumn Sale</h1>
+        <p>Limited time offer</p>
+    </div>
+    <button>
+        <a href="#">Mua ngay
+            <i class="far fa-hand-point-right"></i>
+        </a>
+    </button>
+</div>
+<!-- banner start  -->
+
+<div class="voucher">
+    <div class="voucher-col">
+        <img src="./img/voucher/ecko-voucher-2-384x240.jpg" alt="">
+    </div>
+    <div class="voucher-col">
+        <img src="./img/voucher/kappa-voucher-2-384x240.jpg" alt="">
+    </div>
+    <div class="voucher-col">
+        <img src="./img/voucher/Ecko-VULCANIZED-Shoes-home-right.jpg" alt="">
+    </div>
+</div>
+
+<div class="commit">
+    <div class="commit-col">
+        <i class="fas fa-undo"></i>
+        <h2>Đổi trả miễn phí</h2>
+        <p>Đổi trả sản phẩm miển phí trong vòng 7 ngày</p>
+    </div>
+    <div class="commit-col">
+        <i class="fas fa-truck"></i>
+        <h2>Giao hàng hỏa tốc</h2>
+        <p>Ship hỏa tốc 1h trong nội thành TP HCM</p>
+    </div>
+    <div class="commit-col">
+        <i class="fas fa-phone-volume"></i>
+        <h2>Hỗ trợ 24/24</h2>
+        <p>Gọi ngay hotline: 0908012478</p>
+    </div>
+</div>
+
+
+<!-- main start  -->
+<main>
+
+    <!-- sản phẩm mới nhất start  -->
+
+    <section class="latest-products">
+        <h1>Sản phẩm <span>mới nhất</span></h1>
+        <hr>
+        <div class="product-list">
+            {{#each products}}
+            <div class="product-item">
+                <img src="{{this.img}}" alt="">
+                <h3 class="product-name">{{this.name}}</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">
+                    <span class="new">{{this.costNew}}.000đ</span>
+                    <span class="old">{{this.costOld}}.000đ</span>
+                </div>
+                <button>
+                    <a href="/signin">Mua ngay</a>
+                </button>
+            </div>
+            {{/each}}
+        </div>
+        <button>
+            <a href="">Tất cả sản phẩm<i class="fas fa-arrow-right"></i></a>
+        </button>
+    </section>
+    <!-- sản phẩm mới nhất end  -->
+
+
+
+    <!-- Sản phẩm bán chạy nhất start-->
+    <section class="best-selling-products">
+        <h1>Sản phẩm <span>bán chạy nhất</span></h1>
+        <hr>
+        <div class="product-list">
+
+            {{#each bestseller}}
+            <div class="product-item">
+                <img src="{{this.img}}" alt="">
+                <h3 class="product-name">{{this.name}}</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">
+                    <span class="new">{{this.costNew}}.000đ</span>
+                    <span class="old">{{this.costOld}}.000đ</span>
+                </div>
+                <button>
+                    <a href="/signin">Mua ngay</a>
+                </button>
+            </div>
+            {{/each}}
+        </div>
+        <button>
+            <a href="#">Tất cả sản phẩm<i class="fas fa-arrow-right"></i></a>
+        </button>
+    </section>
+    <!-- Sản phẩm bán chạy nhất end-->
+</main>
+
+<!-- main end  -->
+
+
+<!-- customer review start  -->
+<section class="customer-review">
+    <h1><span>Khách hàng</span> nói gì về chúng tôi</h1>
+    <hr>
+    <div class="review-list">
+        <div class="review-content">
+            <img src="https://lh3.googleusercontent.com/7bzbvpdZR1hqDDppgRYckXjkWb5nf6w6pUhAPaK0Ywl6P7nzfP9ayO28XaS96vcec93motLbDLqNAAHy6ZQORJDEpcOLg5FAJgVYmAdrEinzbgT0U6xbnug6YCj7IVistLGTEbC2-lLlVmSrUa4F1u18CaHo4jCixLqySbkitNNa2nYtoWtsKkULoPLgbGKTKKPwbT_5mi1t_l92lmfp1T8Qsu1T9iizPwwVdMGJgIzC4RadKdDn9XVnvmTuucpsb1W0_vSJ-3A1SysTPnvgMWx7793mKfnXv6DIWo6fBCRKJBj1zZ5b9rCB__OmE9v9bOMlPYoExoUUQH2qPhr8eSx1BuJo72hQKMkzCg08i8t8eMSZP9e_f-s7dGa15BNNwOMRErtJSrmLmxw336svOvq1JbNWhS2MLjzOlz7eCc5NPVXYenaM7UqLL9y5W_6FB1Gv_9NOi0oI388IAdSV_4TDj0mKeoepziGVC56aJaaaN68phw6F829dlwxz4Oc-CWMLo4WshHpn33fsZAX7Wq8NZrgi_fI900ZhZsodskxM1CTf2x9ehpJeZgVhXsQzBaNAg8rS1Xb6qw0nCwB6j6EiF-CnvKVmI1Z_TZEjgfd9vdHnGxr2sdgbFagZLbsG1dohjLmj60aGW4wfK6JxwFvPUMfFBsLZsYoeFf_mvsUNlFni2rWg5hORN6I7y5u1bcsp-SsNkWCPb2zC4TNEPegr=w860-h934-no?authuser=0"
+                alt="">
+            <p class="customer-name">Leo Messi</p>
+            <p class="review">Giày bên shop đẹp lắm, sẽ ủng hộ shop tiếp.</p>
+        </div>
+        <div class="review-content">
+            <img src="https://lh3.googleusercontent.com/ipsLO-_ACPr1Y28H3ETQeQ6j7avPFBwrsDNzmOMKrd-cy2VyY_w8E3HK6rHpnZQituJLsTybHgDljjQDfe1ohHT-85_itkr3vTaq69HEcRvFnD2Ld0NMDN4aRjm7BlKWL9cYA2pPkUopSdW8UKZUnRRyVstA61RrxGT3wN-pfkwm_wd3htto1fV0UlGkFYAdQWPHiv2WjGxNMuHruprdHzZjt5-aS34RW3VPeqqYC2LwXj9w6nYUdQ04Omde2KcdhGqvtQYun5wopuTPP5nTH2GIbt-dDbKQJyyTuH6-TDHThqeUbwIONx8EwyBXkEd3HrrbwbmFYKpMQ5eYpTFIa2OL9tBUPGwemtYSwSE60-hqOLIOrxhHbeIORVqYtyHAHhB7MBv3Aoo2QwrshrPLONc4pfegQvC7mIse9Sgvj8W_ntvrucSUxbq-1CC-qNhNlvLqU7SeK4a_ONGm0BvLfuQhNubqQuLwUCMy9rTj1Yl648YQn5n_t_vHFtBJ0D1EA69uvc9kyrlLTpvH0NwVod8UG9Hu1CxD86vmKGg9F80wm97SRIHBXu6e2cWEygeUplEa_fmnCWCIecwCPYH_f2DP2aSuSows32TZ_Ls0ZbfjIhQAvkLql5H8MnlO8iSySLFn_wjzr174qrumWFiSk-RoUxeJtd4ab9UJc4tB3vuYWs_lxK4CsTw_QmuYCDUGsgsKJrHJw9VWv63e4sSkbMDO=w420-h409-no?authuser=0"
+                alt="">
+            <p class="customer-name">Ronaldo</p>
+            <p class="review">Hàng tốt, giao hàng nhanh. Mọi người nhớ ghé ủng hộ shop. Hàng chất lượng, nhiều ưu
+                đãi, chủ shop nhiệt tình.</p>
+        </div>
+        <div class="review-content">
+            <img src="https://lh3.googleusercontent.com/-nEmfzrMemmF9Ut5KT-7VCL2lqPixAe8F8X-hoEtzYdAlpv0m4NknBfx25oppFdNga9qoiGl5hZtbNLfCWJkS7-b1158yZaASK-ufsD2ArmV56FdWR1eLvYZxP5fKr9Q1ZxVQ4nlY-qO1Qo5ngDl2PsUrNPposgclP6hSirmd1cd-9EozOXilPAWbiODe626cLKrdgSBNs4K8C7oNZVDETd2XwmBZi1QZqhZWNyYFMgbMR7qfVBYPY__4qSzZWYmCgj1nFI6XZaoS2eYIGtlVN4RXQb2pqjoVzL6-f6slXyvrkGx0K4EI-cPC9F7rZmZCLMZSTGD14tjVcweGWbCx9_lKCw6515BxBxE9hl65op_QJslEi-JfsMwV09-UzwJlSoJZp_Wzr_-7Gb3jwVWc7J28nER3U-6ntJHeuRxbBzwX37073YJfw0LnH4XwahFOx00_pEWR3FKiMJNYlqZd7a4ULaJEOfoO7bQgCL679izFFOB77YLVn6xqCJ4KXd4dg78rEMx7r9SQWiULVrn2QQX9ySqiqEo0NyrT4O516yaWZlYhPemZgmpIR_l5k12_SP_DPsKdYs_xxp_wVKu-jqy6hqTbD0dpN1tN3AFvxm8OBNTDcQWECAcwHWtJM6wNUZxk0sTAFnsUazPELYOJmcijzV96FL_t_cSRHV0w8yFSdzucnwWtFdUVV-JRtCUMws24ihXxJ6gM0sFn2Y9XPs5=w563-h547-no?authuser=0"
+                alt="">
+            <p class="customer-name">Kylian M3p</p>
+            <p class="review">Hàng chất lượng, nhiều ưu đãi, chủ shop nhiệt tình. Giày bên shop đẹp lắm, sẽ ủng hộ
+                shop tiếp</p>
+        </div>
+    </div>
+</section>
+
+<script src="/js/home.js"></script>

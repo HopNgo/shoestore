@@ -1,0 +1,81 @@
+header .container {
+  box-shadow: 0 2px 5px black;
+}
+
+header .container nav ul .nav-latest-products a {
+  color: red;
+}
+
+/* sản phẩm mới nhât start  */
+
+main .latest-products {
+  margin-top: 150px;
+}
+main .latest-products > h1 {
+  color: var(--primary-color);
+}
+main .filter p {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+main .filter i {
+  margin-left: 8px;
+}
+
+main .filter ul li {
+  list-style-type: none;
+  line-height: 2;
+  display: block;
+  padding: 8px;
+}
+main .latest-products .filter {
+  position: absolute;
+  left: 1150px;
+  z-index: 1;
+}
+main .latest-products .filter ul {
+  min-width: 150px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px black;
+  display: none;
+}
+
+main .latest-products .filter:hover ul {
+  display: block;
+}
+
+main .latest-products .filter ul li:hover {
+  background-color: #ccc;
+}
+
+main .latest-products > .pages {
+  position: absolute;
+  right: 0;
+  transform: translateX(-25%);
+}
+
+main .latest-products > .pages > ul > li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+main .latest-products > .pages > ul button {
+  padding: 4px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: rgb(58, 56, 56);
+  font-weight: bold;
+}
+
+main .latest-products > .pages > ul .active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+main .latest-products > .pages > ul button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}

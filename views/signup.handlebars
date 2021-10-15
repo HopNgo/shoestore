@@ -1,0 +1,20 @@
+<div class="form-container">
+    <p class="error"> {{message}} </p>
+    <form method="POST" action="/signup" class="form-signup" id="signup">
+        <h1 class="form-title">Đăng ký</h1>
+        <div class="form-text">
+            <input type="text" placeholder="Tên của bạn" name="name">
+        </div>
+        <div class="form-text">
+            <input type="text" placeholder="Email/Số điện thoại" name="email">
+        </div>
+        <div class="form-text">
+            <input type="password" placeholder="Mật khẩu" name="password">
+        </div>
+        <div class="form-text">
+            <input type="password" placeholder="Nhập lại mật khẩu">
+        </div>
+        <button class="form-button">Đăng ký</button>
+        <p>Bạn đã có tài khoản? <a id="linkLogin" href="./signin">Đăng nhập</a></p>
+    </form>
+</div>

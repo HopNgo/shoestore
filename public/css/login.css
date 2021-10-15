@@ -1,0 +1,37 @@
+.error {
+  color: red;
+}
+
+.form-title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-container {
+  width: 400px;
+  max-width: 400px;
+  margin: 200px auto;
+  padding: 2rem;
+  background-color: #f9f8f9;
+}
+
+.form-text {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.form-text input {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+}
+.form-button {
+  height: 35px;
+  width: 100%;
+  margin-bottom: 30px;
+  background-color: #fa9e1b;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}

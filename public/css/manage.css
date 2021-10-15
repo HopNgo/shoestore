@@ -1,0 +1,120 @@
+.manage {
+  margin: 150px 0;
+}
+
+.manage .btn-add {
+  padding: 5px 10px;
+  background-color: rgb(178, 164, 243);
+  border-radius: 5px;
+}
+.success {
+  color: green;
+  margin-left: 50px;
+}
+.manage .btn-add:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.form-add {
+  max-width: 500px;
+  padding: 50px 20px 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  z-index: 1;
+}
+.form-add label {
+  font-weight: bold;
+}
+.form-add h1 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: orange;
+}
+.form-add input {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid black;
+}
+.form-add input:focus {
+  border-color: orange;
+}
+.form-add input[id="name"],
+input[id="img"] {
+  margin-top: 10px;
+  display: block;
+  padding: 10px;
+  width: 100%;
+}
+.form-add input[id="costOld"] {
+  margin-left: 10px;
+  margin-right: 12px;
+}
+.form-add input[id="costNew"] {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.form-add input[id="costOld"],
+input[id="costNew"] {
+  padding: 10px;
+  width: 34%;
+}
+.form-add select {
+  padding: 10px 20px;
+  margin-left: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.form-add select:focus {
+  border-color: orange;
+}
+.form-add select[id="gender"] {
+  margin-right: 50px;
+}
+
+.form-add select[id="type"] {
+  margin-top: 30px;
+  width: 90%;
+}
+
+.form-add input[type="submit"] {
+  margin-left: 260px;
+  margin-top: 50px;
+  padding: 12px 25px;
+  border: none;
+  background-color: rgb(30, 144, 255);
+  font-size: 17px;
+  color: white;
+}
+.form-add input[type="submit"]:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.form-add .btn-cancel {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-left: 5px;
+}
+.form-add .btn-cancel:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.light-box-add-product {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  display: none;
+}
+.light-box-add-product form {
+  position: absolute;
+  left: calc(50% - 250px);
+  top: calc(50% - 300px);
+}
