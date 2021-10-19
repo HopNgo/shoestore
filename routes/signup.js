@@ -8,24 +8,26 @@ router.get('/signup', (req, res, nxt) => {
 });
 
 
-router.post('/signup', async (req, res, next) => {
+router.post('/signup',  (req, res, next) => {
     const { name, email, password } = req.body;
-    user.findOne({ email: email }, function (err, data) {
+    user.findOne({ email: email },async function (err, data) {
         if (data) {
             res.render('signup', { message: "* Tài khoản đã tồn tại" })
             return;
+        } else {
+            const hashPassword = await bcrypt.hash(password, 10);
+            const newUser = new user({
+                name: name,
+                email: email,
+                role: "user",
+                password: hashPassword
+            })
+            newUser.save();
+            res.redirect('/signin');
         }
     })
 
-    const hashPassword = await bcrypt.hash(password, 10);
-    const newUser = new user({
-        name: name,
-        email: email,
-        role: "user",
-        password: hashPassword
-    })
-    newUser.save();
-    res.redirect('/signin');
+
 
 
 });
