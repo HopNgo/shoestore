@@ -1,11 +1,13 @@
-.manage {
-  margin: 150px 0;
-}
+/* .manage {
+  margin-top: 150px;
+} */
 
 .manage .btn-add {
-  padding: 5px 10px;
-  background-color: rgb(178, 164, 243);
+  padding: 10px 5px;
+  background-color: rgb(76, 97, 219);
   border-radius: 5px;
+  color: white;
+  border: none;
 }
 .success {
   color: green;
@@ -117,4 +119,70 @@ input[id="costNew"] {
   position: absolute;
   left: calc(50% - 250px);
   top: calc(50% - 300px);
+}
+
+
+.row {
+  margin: 150px 0;
+  position: relative;
+}
+.row .manage {
+  position: absolute;
+  top: 30px;
+  left: calc(90%);
+  transform: translateX(-100%);
+  /* display: none; */
+}
+.row h3 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 32px;
+}
+.row .table {
+  min-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.row .table, .row th, .row td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 8px 12px;
+}
+
+.table tr th:nth-child(3) {
+  min-width: 170px;
+}
+
+.table tr img {
+  width: 170px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.table td a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  
+}
+
+.table .update a {
+  background-color: rgb(14, 128, 65);
+}
+
+.table .delete a {
+  background-color: darkred;
+}
+
+
+.table .update a:hover {
+  background-color: rgb(57, 155, 101);
+}
+.table .delete a:hover {
+  background-color: rgb(161, 62, 62);
 }

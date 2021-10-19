@@ -1,12 +1,4 @@
-<div class="manage">
-    {{#if message}}
-    <p class="success"> {{message}}</p>
-    {{/if}}
-    <button class="btn-add"> Thêm sản phẩm </button>
 
-    <!-- Code update ở đây -->
-
-</div>
 
 <div class="light-box-add-product">
     <form method="POST" class="form-add">
@@ -48,5 +40,49 @@
 
     </form>
 </div>
+
+
+<div class="row">
+    <h3>DANH SÁCH SẢN PHẨM</h3>
+    <div class="manage">
+        {{#if message}}
+        <p class="success"> {{message}}</p>
+        {{/if}}
+        <button class="btn-add"> Thêm sản phẩm </button>
+
+        <!-- Code update ở đây -->
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên giày</th>
+                <th>Hình ảnh</th>
+                <th>Giới tính</th>
+                <th>Giá cũ</th>
+                <th>Giá mới</th>
+                <th>Thương hiệu</th>
+                <th>Loại</th>
+                <th colspan="2">Chức năng</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+                <td>1</td>
+                <td>Demo</td>
+                <td><img src="https://giayxshop.vn/wp-content/uploads/2019/05/MG_6729.jpg" alt=""></td>
+                <td>Demo</td>
+                <td>Demo</td>
+                <td>Demo</td>
+                <td>Demo</td>
+                <td>Demo</td>
+                <td class="update"><a href="">Update</i></a></td>
+                <td class="delete"><a href="">Delete</i></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 
 <script src="/js/light-box.js"></script>
