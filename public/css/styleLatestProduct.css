@@ -29,6 +29,10 @@ main .filter ul li {
   display: block;
   padding: 8px;
 }
+main .filter ul li a {
+  text-decoration: none;
+  color: black;
+}
 main .latest-products .filter {
   position: absolute;
   left: 1150px;
