@@ -9,14 +9,26 @@ router.get('/admin/manage', function (req, res, next) {
     if (role == "user") {
         role = "";
     }
-    res.render('manage', { name: name, role: role })
+    const messageUpdate = req.cookies['messageUpdate'];
+    res.clearCookie('messageUpdate');
+    homeproduct.find({}, function (err, data) {
+        if (err) {
+            res.status(400).json('err');
+        }
+        res.render('manage', { products: multipleMongooseToObject(data), name: name, role: role, messageUpdate: messageUpdate })
+    })
 
 })
 router.post('/admin/manage', function (req, res, next) {
+    const name = req.cookies.nameUser;
+    let role = req.cookies.role;
+    if (role == "user") {
+        role = "";
+    }
     const formData = req.body;
     const data = new homeproduct(formData);
     data.save();
-    res.render('manage', { message: "Bạn đã thêm sản phẩm thành công !!" })
+    res.render('manage', { messageAdd: "Bạn đã thêm sản phẩm thành công !!", name: name, role: role })
 })
 
 

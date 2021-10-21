@@ -9,10 +9,7 @@
   color: white;
   border: none;
 }
-.success {
-  color: green;
-  margin-left: 50px;
-}
+
 .manage .btn-add:hover {
   cursor: pointer;
   opacity: 0.8;
@@ -121,22 +118,28 @@ input[id="costNew"] {
   top: calc(50% - 300px);
 }
 
-
 .row {
   margin: 150px 0;
-  position: relative;
 }
 .row .manage {
-  position: absolute;
-  top: 30px;
-  left: calc(90%);
-  transform: translateX(-100%);
   /* display: none; */
+  margin-bottom: 100px;
+  position: relative;
+}
+.row .manage button {
+  position: absolute;
+  right: calc(50% - 600px);
+}
+.row .manage .success {
+  color: green;
+  position: absolute;
+  left: calc(50% - 600px);
 }
 .row h3 {
   text-align: center;
   font-size: 36px;
   margin-bottom: 32px;
+  color: orange;
 }
 .row .table {
   min-width: 1100px;
@@ -144,12 +147,15 @@ input[id="costNew"] {
   text-align: center;
 }
 
-.row .table, .row th, .row td {
+.row .table,
+.row th,
+.row td {
   border: 1px solid black;
   border-collapse: collapse;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   padding: 8px 12px;
 }
 
@@ -168,7 +174,6 @@ input[id="costNew"] {
   color: white;
   padding: 8px 12px;
   border-radius: 5px;
-  
 }
 
 .table .update a {
@@ -178,7 +183,6 @@ input[id="costNew"] {
 .table .delete a {
   background-color: darkred;
 }
-
 
 .table .update a:hover {
   background-color: rgb(57, 155, 101);

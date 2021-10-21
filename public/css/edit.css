@@ -1,0 +1,89 @@
+.form-update {
+  position: relative;
+  margin-top: 130px;
+  left: calc(50% - 532px);
+  max-width: 1000px;
+  width: 100%;
+}
+.form-update label {
+  font-weight: bold;
+}
+.form-update h1 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: orange;
+}
+.form-update input {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid black;
+}
+.form-update input:focus {
+  border-color: orange;
+}
+.form-update input[id="name"],
+input[id="img"] {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding: 10px;
+  width: 100%;
+}
+.form-update input[id="costOld"] {
+  margin-left: 10px;
+  margin-right: 185px;
+  margin-top: 40px;
+}
+.form-update input[id="costNew"] {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.form-update input[id="costOld"],
+input[id="costNew"] {
+  padding: 10px;
+  width: 34%;
+}
+.form-update select {
+  padding: 10px 20px;
+  margin-left: 5px;
+  border-radius: 5px;
+  margin-top: 60px;
+  width: 200px;
+}
+.form-update select:focus {
+  border-color: orange;
+}
+.form-update select[id="gender"] {
+  margin-right: 80px;
+}
+.form-update select[id="brand"] {
+  margin-right: 80px;
+}
+
+.form-update input[type="submit"] {
+  margin-left: 700px;
+  margin-top: 50px;
+  margin-right: 30px;
+  padding: 12px 25px;
+  border: none;
+  background-color: rgb(30, 144, 255);
+  font-size: 17px;
+  color: white;
+}
+.form-update input[type="submit"]:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.form-update .btn-cancel {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-left: 5px;
+  text-decoration: none;
+  color: black;
+}
+.form-update .btn-cancel:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
