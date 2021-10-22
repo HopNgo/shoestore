@@ -16,6 +16,7 @@ var genderRouter = require('./routes/gender');
 var brandRouter = require('./routes/brand');
 var manageRouter = require('./routes/manage');
 var editRouter = require('./routes/edit');
+var deleteRouter = require('./routes/delete');
 // path database
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -46,6 +47,7 @@ app.use('/', brandRouter);
 app.use('/', productRouter);
 app.use('/', manageRouter);
 app.use('/', editRouter);
+app.use('/', deleteRouter);
 
 app.listen(port, () => { console.log(`Your port at http://localhost:${port}`) });
 

@@ -90,14 +90,14 @@ input[id="costNew"] {
   cursor: pointer;
   opacity: 0.7;
 }
-.form-add .btn-cancel {
+.btn-cancel {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid black;
   margin-left: 5px;
 }
-.form-add .btn-cancel:hover {
+.btn-cancel:hover {
   cursor: pointer;
   opacity: 0.7;
 }
@@ -175,18 +175,85 @@ input[id="costNew"] {
   padding: 8px 12px;
   border-radius: 5px;
 }
+.table td button {
+  text-decoration: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+}
 
 .table .update a {
   background-color: rgb(14, 128, 65);
 }
 
-.table .delete a {
+.table .delete button {
   background-color: darkred;
 }
 
 .table .update a:hover {
   background-color: rgb(57, 155, 101);
 }
-.table .delete a:hover {
+.table .delete button:hover {
   background-color: rgb(161, 62, 62);
+  cursor: pointer;
+}
+
+.light-box-delete-product {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  display: none;
+}
+.light-box-delete-product .model-delete {
+  position: absolute;
+  top: 100px;
+  left: calc(50% - 250px);
+  background-color: white;
+  width: 500px;
+  border-radius: 5px;
+  z-index: 2;
+}
+.light-box-delete-product .model-delete .header {
+  border-bottom: 1px solid #c5c5c5;
+}
+.light-box-delete-product .model-delete .header .header-name {
+  padding: 10px;
+  display: inline-block;
+}
+.light-box-delete-product .model-delete .header span {
+  font-size: 30px;
+  margin-left: 300px;
+}
+.light-box-delete-product .model-delete .header span:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.light-box-delete-product .model-delete .body {
+  border-bottom: 1px solid #c5c5c5;
+}
+.light-box-delete-product .model-delete .body .body-content {
+  padding: 30px 10px;
+}
+.light-box-delete-product .model-delete form {
+  padding: 20px 0px;
+  display: inline-block;
+}
+.light-box-delete-product .model-delete form button {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 5px;
+  margin-left: 5px;
+  background-color: darkred;
+  color: white;
+  border: none;
+  margin-left: 320px;
+}
+.light-box-delete-product .model-delete form button:hover {
+  background-color: rgb(161, 62, 62);
+  cursor: pointer;
 }

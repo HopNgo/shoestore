@@ -39,15 +39,19 @@
     </form>
 </div>
 
+<script src="/js/light-box-add.js"></script>
 
 <div class="row">
     <h3>DANH SÁCH SẢN PHẨM</h3>
     <div class="manage">
         {{#if messageAdd}}
-        <p class="success"> {{messageAdd}}</p>
+        <p class="success">* {{messageAdd}}</p>
         {{/if}}
         {{#if messageUpdate}}
         <p class="success">* {{messageUpdate}}</p>
+        {{/if}}
+        {{#if messageDelete}}
+        <p class="success">* {{messageDelete}}</p>
         {{/if}}
         <button class="btn-add"> Thêm sản phẩm </button>
 
@@ -77,14 +81,50 @@
                 <td>{{this.costNew}}</td>
                 <td>{{this.brand}}</td>
                 <td>{{this.type}}</td>
-                <td class="update"><a href="/admin/manage/edit/{{this._id}}">Update</a></td>
-                <td class="delete"><a href="">Delete</a></td>
+                <td class="update"><a href="/admin/manage/edit/{{this._id}}">Chỉnh sửa</a></td>
+                <td class="delete"><button data-id="{{this._id}}"> Xóa </button></td>
             </tr>
-            <script src="/js/translate.js"></script>
             {{/each}}
+            <script src="/js/translate.js"></script>
         </tbody>
     </table>
 </div>
 
+{{!-- Confirm Delete --}}
+<div class="light-box-delete-product">
+    <div class="model-delete">
+        <div class="header">
+            <h3 class="header-name"> Xóa sản phẩm ? </h3>
+            <span> &times;</span>
+        </div>
+        <div class="body">
+            <p class="body-content">Bạn chắc chắn xóa sản phẩm này ?</p>
+        </div>
+        <div class="btn">
+            <form method="POST" action="">
+                <button class="btn-delete">Xóa </button>
+            </form>
+            <button class="btn-cancel">Cancel </button>
+        </div>
+    </div>
+</div>
 
-<script src="/js/light-box-add.js"></script>
+{{!-- Script Handle Delete --}}
+<script>
+    $(document).ready(function () {
+        $('.delete button').click(function () {
+            const productID = $(this).data('id');
+            $('.light-box-delete-product .model-delete .btn form').attr('action', `/admin/manage/delete/${productID}?_method=DELETE`);
+
+            $('.light-box-delete-product').show();
+        })
+        $('.light-box-delete-product .model-delete .btn .btn-cancel').click(function () {
+            $('.light-box-delete-product').hide();
+        })
+        $('.light-box-delete-product .model-delete .header span').click(function () {
+            $('.light-box-delete-product').hide();
+        })
+
+
+    })
+</script>
