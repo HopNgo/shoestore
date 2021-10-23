@@ -1,6 +1,8 @@
-
 var mongoose = require('mongoose');
-// định nghĩ cấu trúc user model
+const slug = require('mongoose-slug-generator');
+
+mongoose.plugin(slug);
+
 var Schema = mongoose.Schema;
 var homeproduct = new Schema({
     name: { type: String, required: true },
@@ -10,6 +12,7 @@ var homeproduct = new Schema({
     type: { type: String },
     gender: { type: String, required: true },
     brand: { type: String, required: true },
+    slug: { type: String, slug: 'name' },
 
 });
 

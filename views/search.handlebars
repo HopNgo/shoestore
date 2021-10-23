@@ -1,0 +1,77 @@
+<main>
+
+    <!-- sản phẩm mới nhất start  -->
+
+    <section class="latest-products">
+        <section class="filter">
+            <p>Bộ lọc<i class="fas fa-chevron-down"></i></p>
+            <ul>
+                <li> <a href="/brand/adidas"> Giày Adidas</a> </li>
+                <li><a href="/brand/nike">Giày Nike</a></li>
+                <li> <a href="/brand/converse">Giày Converse</a></li>
+                <li> <a href="/gender/male">Giày Nam</a></li>
+                <li> <a href="/gender/female">Giày Nữ</a></li>
+            </ul>
+        </section>
+        <h1>Sản phẩm tìm kiếm </h1>
+        <div class="product-list">
+            {{#each productSearch}}
+            <div class="product-item">
+                <img src="{{this.img}}" alt="">
+                <h3 class="product-name">{{this.name}}</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">
+                    <span class="new">{{this.costNew}}.000đ</span>
+                    <span class="old">{{this.costOld}}.000đ</span>
+                </div>
+                <button>
+                    <a href="#">Mua ngay</a>
+                </button>
+            </div>
+            {{/each}}
+        </div>
+
+        {{#if messageErrorNotFound}}
+        <div class="error-not-found-product">
+            <img src="https://deo.shopeemobile.com/shopee/shopee-mall-live/images/ic_no_404@2x.png" alt="">
+            <p class="error-404"> 404 </p>
+            <p class="message-error-not-found"> {{messageErrorNotFound}}</p>
+        </div>
+        {{else}}
+        <div class="pages">
+            <ul>
+                <li>
+                    <button>&lt;</button>
+                </li>
+                <li>
+                    <button class="active">1</button>
+                </li>
+                <li>
+                    <button>2</button>
+                </li>
+                <li>
+                    <button>3</button>
+                </li>
+                <li>
+                    <button>...</button>
+                </li>
+                <li>
+                    <button>7</button>
+                </li>
+                <li>
+                    <button>&gt;</button>
+                </li>
+            </ul>
+        </div>
+        {{/if}}
+    </section>
+    <!-- sản phẩm mới nhất end  -->
+
+</main>
+

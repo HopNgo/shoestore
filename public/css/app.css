@@ -225,19 +225,25 @@ header .container .search {
   margin: auto 0;
 }
 
-header .container .search input {
+header .container .search input[type="text"] {
   font-size: 18px;
   padding: 8px 20px;
   border: none;
   border-radius: 15px;
-  outline: none;
   outline: 1px solid rgb(50, 10, 51);
 }
 
-header .container .search i {
+header .container .search button {
+  color: white;
+  background-color: rgba(50, 10, 51, 0.9);
+  border-radius: 15px;
+  padding: 8px 20px;
+  font-size: 18px;
+  border: none;
+}
+header .container .search button:hover {
   cursor: pointer;
-  color: var(--primary-color);
-  transform: translate(-40px, 4px);
+  opacity: 0.9;
 }
 
 .header-mobile {
