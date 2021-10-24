@@ -5,14 +5,14 @@ var bcrypt = require('bcrypt')
 
 router.get('/signin', (req, res, next) => {
 
-    res.render('signin');
+    res.render('signin', {style: 'login.css'});
 });
 router.post('/signin', async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     user.findOne({ email: email }, async function (err, data) {
         if (!data) {
-            return res.render('signin', { message: "* Tài khoản không tồn tại " });
+            return res.render('signin', {  message: "* Tài khoản không tồn tại " });
 
         }
         const passwordValid = await bcrypt.compare(password, data.password);

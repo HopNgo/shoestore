@@ -12,7 +12,14 @@ router.get('/brand/:slug', function (req, res, next) {
     }
 
     homeproduct.find({ brand: brand })
-        .then(products => res.render('product', { products: multipleMongooseToObject(products), name: name, role: role }));
+        .then(products => res.render('product', { 
+            products: multipleMongooseToObject(products), 
+            name: name, 
+            role: role,
+            style: 'styleLatestProduct.css',
+            reponsive: 'responseLatestProduct.css',
+            brand: brand
+        }));
 })
 
 

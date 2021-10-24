@@ -20,7 +20,15 @@ router.get('/admin/manage', requireAuth, function (req, res, next) {
         if (err) {
             res.status(400).json('err');
         }
-        res.render('manage', { products: multipleMongooseToObject(data), name: name, role: role, messageUpdate: messageUpdate, messageDelete: messageDelete, messageAdd: messageAdd })
+        res.render('manage', { 
+            products: multipleMongooseToObject(data), 
+            name: name, 
+            role: role, 
+            messageUpdate: messageUpdate, 
+            messageDelete: messageDelete, 
+            messageAdd: messageAdd,
+            style: 'manage.css',
+        })
     })
 
 })

@@ -16,7 +16,14 @@ router.get('/', function (req, res, next) {
             dataBestSeller = data;
         });
     homeproduct.find({ type: "latestproduct" })
-        .then(products => res.render('home', { products: multipleMongooseToObject(products), bestseller: multipleMongooseToObject(dataBestSeller), name: name, role: role }));
+        .then(products => res.render('home', { 
+            products: multipleMongooseToObject(products), 
+            bestseller: multipleMongooseToObject(dataBestSeller), 
+            name: name, 
+            role: role,
+            style: 'app.css',
+            reponsive: 'responseApp.css'
+         }));
 
 })
 
