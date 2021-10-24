@@ -3,6 +3,8 @@
     <!-- sản phẩm mới nhất start  -->
 
     <section class="latest-products">
+        {{#if messageErrorNotFound}}
+        {{else}}
         <section class="filter">
             <p>Bộ lọc<i class="fas fa-chevron-down"></i></p>
             <ul>
@@ -13,6 +15,7 @@
                 <li> <a href="/gender/female">Giày Nữ</a></li>
             </ul>
         </section>
+        {{/if}}
         <h1>Sản phẩm tìm kiếm </h1>
         <div class="product-list">
             {{#each productSearch}}

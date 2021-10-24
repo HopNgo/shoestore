@@ -12,12 +12,12 @@ router.post('/signin', async (req, res, next) => {
     const password = req.body.password;
     user.findOne({ email: email }, async function (err, data) {
         if (!data) {
-            return res.render('signin', { message: "* Tài khoản không tồn tại " });
+            return res.render('signin', { sytle: 'login.css', message: "* Tài khoản không tồn tại " });
 
         }
         const passwordValid = await bcrypt.compare(password, data.password);
         if (!passwordValid) {
-            return res.render('signin', { message: "* Mật khẩu của bạn không đúng" })
+            return res.render('signin', { sytle: 'login.css',message: "* Mật khẩu của bạn không đúng" })
 
         }
 

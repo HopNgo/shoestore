@@ -1,0 +1,71 @@
+<div class="product-detail">
+    <div class="row">
+        <div class="col img">
+            <img src="{{product.img}}" alt="">
+        </div>
+        <div class="col info">
+            <h3>{{product.name}}</h3>
+            
+            <div class="price">
+                <span class="sale">{{product.costNew}}.000đ</span>
+                <span class="old">{{product.costOld}}.000đ</span>
+            </div>
+            <div class="size">
+                <p>Size</p>
+                {{!-- <ul>
+                    <li>37</li>
+                    <li class="selected">38</li>
+                    <li>39</li>
+                    <li>40</li>
+                    <li>41</li>
+                    <li>42</li>
+                </ul> --}}
+                <input type="radio" name="size" value="37" id="size37" checked>
+                <label class="active" for="size37">37</label>
+
+                <input type="radio" name="size" value="38" id="size38">
+                <label for="size38">38</label>
+
+                <input type="radio" name="size" value="39" id="size39">
+                <label for="size39">39</label>
+
+                <input type="radio" name="size" value="40" id="size40">
+                <label for="size40">40</label>
+
+            </div>
+            <button>Mua ngay</button>
+        </div>
+    </div>
+</div>
+
+<script>
+   // for (var i = 0; i < radios.length; i++)
+  //  {
+   ///     radio = radios[i];
+   //     radio.onchange = function(e) {
+   //         const id = e.target.id
+   //         const label = document.querySelector(`label[for=${id}]`)
+   //         label.classList.add('active')
+      //  }
+  //  }
+        const radios = document.querySelectorAll('input[name="size"]')
+        console.log(radios)
+
+        radios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                const labels = document.querySelectorAll('label')
+                labels.forEach(function(label) {
+                        if (label.classList.contains('active'))
+                            label.classList.remove('active')
+                })
+                
+                console.log(radio.id)
+                const id = radio.id
+                
+                const labelChecked = document.querySelector(`label[for=${id}]`)
+                labelChecked.classList.add('active')
+               
+            })
+        });
+    
+</script>

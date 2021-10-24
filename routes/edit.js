@@ -13,7 +13,12 @@ router.get('/admin/manage/edit/:id', function (req, res, next) {
         if (err) {
             res.status(400).json('err');
         }
-        res.render('edit', { productEdit: mongooseToObject(data), name: name, role: role });
+        res.render('edit', { 
+            productEdit: mongooseToObject(data), 
+            name: name, 
+            role: role,
+            style: 'edit.css'
+        });
     })
 
 })

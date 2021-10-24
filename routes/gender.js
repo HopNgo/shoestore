@@ -12,7 +12,15 @@ router.get('/gender/:slug', function (req, res, next) {
     }
 
     homeproduct.find({ gender: gender })
-        .then(products => res.render('product', { products: multipleMongooseToObject(products), name: name, role: role }));
+        .then(products => res.render('product', { 
+            products: multipleMongooseToObject(products), 
+            name: name, 
+            role: role,
+            style: 'styleLatestProduct.css',
+            reponsive: 'responseLatestProduct.css',
+            gender: gender
+
+        }));
 })
 
 

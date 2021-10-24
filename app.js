@@ -18,6 +18,7 @@ var manageRouter = require('./routes/manage');
 var editRouter = require('./routes/edit');
 var deleteRouter = require('./routes/delete');
 var searchRouter = require('./routes/search');
+var detailProductRouter = require('./routes/detailProduct');
 // path database
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -39,6 +40,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/', detailProductRouter);
 app.use('/', searchRouter);
 app.use('/', signinRouter);
 app.use('/', signupRouter);
