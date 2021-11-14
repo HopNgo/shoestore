@@ -8,9 +8,9 @@
 }
 
 .form-container {
-  width: 400px;
-  max-width: 400px;
-  margin: 200px auto;
+  width: 450px;
+  max-width: 450px;
+  margin: 120px auto;
   padding: 2rem;
   background-color: #f9f8f9;
 }
@@ -34,4 +34,18 @@
   color: #fff;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.select-address select[name="calc_shipping_provinces"] {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-right: 15px;
+}
+
+.select-address .calc_shipping_sub-district {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 20px;
 }

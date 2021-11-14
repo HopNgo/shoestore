@@ -102,9 +102,21 @@ header .header-top .user a {
   color: white;
   text-decoration: none;
 }
+header .header-top .user .bagde {
+  position: fixed;
+  color: white;
+  background-color: orange;
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 50%;
+  top: 17px;
+  right: 140px;
+}
 
 header .header-top .user a i {
   color: white;
+  z-index: -1;
 }
 
 header .header-top .user a span {

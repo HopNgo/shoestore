@@ -1,0 +1,80 @@
+<main class="main-cart">
+    <h1> Giỏ Hàng Của Bạn</h1>
+    <a class="btn-continue-shopping" href="/">Tiếp tục mua sắm</a>
+
+    <div class="box-cart">
+        <section class="list-product-cart">
+            <div class="heading">
+                <span class="col-1">Sản phẩm</span>
+                <span class="col-2">Đơn giá </span>
+                <span class="col-3">Số lượng</span>
+                <span class="col-4">Thành tiền</span>
+            </div>
+            {{#each productsCart}}
+            <div class="box-product">
+                <div class="product-img">
+                    <img src="{{this.item.img}}" alt="">
+                </div>
+                <div class="product-content">
+                    <span class="product-name">{{this.item.name}}</span> <br> <br>
+                    <span class="product-brand"><strong>Thương hiệu: </strong>{{this.item.brand}}</span>
+                </div>
+                <div class="product-price">
+                    <span>{{this.item.costNew}}.000đ</span>
+                </div>
+                <div class="product-quantity">
+                    <span> {{this.qty}}</span>
+                </div>
+                <div class="product-total">
+                    <span> {{this.price}}</span>
+                </div>
+                <div class="remove-product-cart">
+                    <a href="/shop/remove-product-cart/{{this.item._id}}"><i class="fa fa-trash"></i></a>
+                </div>
+            </div>
+            {{/each}}
+        </section>
+        <section class="box-cart-order">
+            <div class="box-cart-order-infor">
+                <h1 class="heading"> Thông tin đặt hàng </h1>
+                <p class="user-name"> Tên khách hàng: <span> {{nameUser}}</span></p>
+                <p class="address-user"> Địa chỉ : <span>{{address.subDistrict}}, {{address.district}},
+                        {{address.province}}</span></p>
+                <p class="products-total-price"> Tổng đơn hàng: <span> {{totalPrice}}</span></p>
+                <p class="products-discount"> Giảm giá 10%:<span>{{discount totalPrice}}</span></p>
+                <p class="products-delivery"> Phí vận chuyển: <span> 30.000đ</span></p>
+                <p class="products-total-order"> Tổng Cộng: <span> {{totalOrder totalPrice}}</span></p>
+            </div>
+            <div class="btn-order">
+                <a href="">Đặt hàng </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<script>
+    $(document).ready(function () {
+
+        let totalPrice = $('.box-cart-order .products-total-price span').text();
+        const formatTotalPrice = new Intl.NumberFormat('vi-VN').format(totalPrice);
+        $('.box-cart-order .products-total-price span').text(formatTotalPrice + ".000đ");
+
+        let discount = $('.box-cart-order .products-discount span').text();
+        const formatDiscount = new Intl.NumberFormat('vi-VN').format(discount);
+        $('.box-cart-order .products-discount span').text(formatDiscount + ".000đ");
+
+        let totalOrder = $('.box-cart-order .products-total-order span').text();
+        const formatTotalOrder = new Intl.NumberFormat('vi-VN').format(totalOrder);
+        $('.box-cart-order .products-total-order span').text(formatTotalOrder + ".000đ");
+
+        const a = $('.box-product .product-total span');
+
+
+        const listProductTotal = document.querySelectorAll('.box-product .product-total span');
+        for (let i = 0; i < listProductTotal.length; i++) {
+            let productTotal = listProductTotal[i].innerText;
+            const formatProductTotal = new Intl.NumberFormat('vi-VN').format(productTotal);
+            listProductTotal[i].textContent = formatProductTotal + ".000đ";
+        }
+    })
+</script>

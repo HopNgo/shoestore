@@ -22,7 +22,9 @@ router.post('/signin', async (req, res, next) => {
         }
 
         res.cookie('nameUser', data.name);
+        res.cookie('emailUser', data.email);
         res.cookie('role', data.role);
+        res.cookie('address', data.address);
         res.redirect('/');
 
     })

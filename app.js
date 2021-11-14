@@ -1,23 +1,39 @@
 require('dotenv').config()
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var port = 3000;
-var mongoose = require('mongoose');
-var methodOverride = require('method-override');
-var app = express();
-var handlebars = require('express-handlebars');
-var signinRouter = require('./routes/signin');
-var signupRouter = require('./routes/signup');
-var homeRouter = require('./routes/home');
-var destroyCookieRouter = require('./routes/destroyCookie');
-var productRouter = require('./routes/product');
-var genderRouter = require('./routes/gender');
-var brandRouter = require('./routes/brand');
-var manageRouter = require('./routes/manage');
-var editRouter = require('./routes/edit');
-var deleteRouter = require('./routes/delete');
-var searchRouter = require('./routes/search');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const port = 3000;
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const app = express();
+const handlebars = require('express-handlebars');
+const signinRouter = require('./routes/signin');
+const signupRouter = require('./routes/signup');
+const homeRouter = require('./routes/home');
+const destroyCookieRouter = require('./routes/destroyCookie');
+const productRouter = require('./routes/product');
+const genderRouter = require('./routes/gender');
+const brandRouter = require('./routes/brand');
+const manageRouter = require('./routes/manage');
+const editRouter = require('./routes/edit');
+const deleteRouter = require('./routes/delete');
+const searchRouter = require('./routes/search');
+const addToCartRouter = require('./routes/addToCart');
+const shoppingCartRouter = require('./routes/shoppingCart');
+const removeProductCartRouter = require('./routes/removeProductCart');
+
+//session
+app.use(session({
+    resave: true,
+    saveUninitialized: true,
+    secret: 'topsecret'
+}))
+
+app.use(function (req, res, next) {
+    res.locals.session = req.session;
+    next();
+})
 // path database
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -26,6 +42,8 @@ app.use(cookieParser());
 app.engine('handlebars', handlebars({
     helpers: {
         sum: (a, b) => a + b,
+        discount: (a) => a * 10 / 100,
+        totalOrder: (a) => a - (a * 10 / 100) + 30,
     }
 }));
 app.set('view engine', 'handlebars');
@@ -50,6 +68,9 @@ app.use('/', productRouter);
 app.use('/', manageRouter);
 app.use('/', editRouter);
 app.use('/', deleteRouter);
+app.use('/', addToCartRouter);
+app.use('/', shoppingCartRouter);
+app.use('/', removeProductCartRouter);
 
 app.listen(port, () => { console.log(`Your port at http://localhost:${port}`) });
 

@@ -8,9 +8,9 @@ router.get('/signup', (req, res, nxt) => {
 });
 
 
-router.post('/signup',  (req, res, next) => {
-    const { name, email, password } = req.body;
-    user.findOne({ email: email },async function (err, data) {
+router.post('/signup', (req, res, next) => {
+    const { name, email, password, province, district, subDistrict } = req.body;
+    user.findOne({ email: email }, async function (err, data) {
         if (data) {
             res.render('signup', { message: "* Tài khoản đã tồn tại" })
             return;
@@ -20,16 +20,17 @@ router.post('/signup',  (req, res, next) => {
                 name: name,
                 email: email,
                 role: "user",
-                password: hashPassword
+                password: hashPassword,
+                address: {
+                    province: province,
+                    district: district,
+                    subDistrict: subDistrict
+                }
             })
             newUser.save();
             res.redirect('/signin');
         }
     })
-
-
-
-
 });
 
 

@@ -1,4 +1,5 @@
-<form method="POST" class="form-update" action="/admin/manage/edit/{{productEdit._id}}?_method=PUT">
+<form method="POST" class="form-update" 
+action="/admin/manage/edit/{{productEdit._id}}?_method=PUT">
     <h1> Thông tin chỉnh sửa sản phẩm </h1>
     <label for="name"> Tên Giày</label>
     <input type="text" name="name" id="name" value="{{productEdit.name}}" placeholder="Tên giày...">
@@ -31,8 +32,6 @@
         <option value="latestproduct"> Mới nhất </option>
         <option value=""> Không </option>
     </select>
-
     <input type="submit" value="Lưu lại">
     <a href="/admin/manage" class="btn-cancel"> Cancel</a>
-
 </form>

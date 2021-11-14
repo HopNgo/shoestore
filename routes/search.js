@@ -10,7 +10,6 @@ router.get('/search', (req, res, next) => {
     if (role == "user") {
         role = "";
     }
-
     let searchWord = req.query.q;
     if (searchWord) {
         homeproduct.find({ name: new RegExp(searchWord, 'i') }, function (err, data) {
