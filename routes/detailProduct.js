@@ -10,19 +10,17 @@ router.get('/product/:slug', function (req, res, next) {
     if (role == "user") {
         role = "";
     }
-
     homeproduct.findOne({ slug: req.params.slug })
-        .then(function(product) {
-            product =  mongooseToObject(product);
+        .then(function (product) {
+            product = mongooseToObject(product);
             res.render('detailProduct', {
                 product: product,
-                name: name, 
+                name: name,
                 role: role,
                 style: 'detailProduct.css'
             });
         })
         .catch(next)
-
 })
 
 
