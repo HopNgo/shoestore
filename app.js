@@ -1,4 +1,5 @@
 require('dotenv').config()
+<<<<<<< HEAD
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -34,6 +35,28 @@ app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
 })
+=======
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var port = 3000;
+var mongoose = require('mongoose');
+var methodOverride = require('method-override');
+var app = express();
+var handlebars = require('express-handlebars');
+var signinRouter = require('./routes/signin');
+var signupRouter = require('./routes/signup');
+var homeRouter = require('./routes/home');
+var destroyCookieRouter = require('./routes/destroyCookie');
+var productRouter = require('./routes/product');
+var genderRouter = require('./routes/gender');
+var brandRouter = require('./routes/brand');
+var manageRouter = require('./routes/manage');
+var editRouter = require('./routes/edit');
+var deleteRouter = require('./routes/delete');
+var searchRouter = require('./routes/search');
+var detailProductRouter = require('./routes/detailProduct');
+>>>>>>> origin/nhan
 // path database
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -57,6 +80,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/', detailProductRouter);
 app.use('/', searchRouter);
 app.use('/', signinRouter);
 app.use('/', signupRouter);

@@ -13,13 +13,28 @@
                 <li> <a href="/gender/female">Giày Nữ</a></li>
             </ul>
         </section>
-        <h1>Giày mới nhất</h1>
+        {{#if type}}
+            <h1 id="heading-type">{{type}}</h1>
+        {{/if}}
+        {{#if gender}}
+            <h1 id="heading-gender">{{gender}}</h1>
+        {{/if}}
+         {{#if brand}}
+            <h1 id="heading-brand">{{brand}}</h1>
+        {{/if}}
         <hr>
         <div class="product-list">
             {{#each products}}
             <div class="product-item">
-                <img src="{{this.img}}" alt="">
-                <h3 class="product-name">{{this.name}}</h3>
+                <a href="/product/{{this.slug}}">
+                    <img src="{{this.img}}" alt="">
+                </a>
+               
+                <a href="/product/{{this.slug}}">
+                    <h3 class="product-name">{{this.name}}</h3>
+                </a>
+
+                
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -67,3 +82,32 @@
     <!-- sản phẩm mới nhất end  -->
 
 </main>
+
+<script>
+    const headingType = document.getElementById('heading-type')
+    const headingGender = document.getElementById('heading-gender')
+    const headingBrand = document.getElementById('heading-brand')
+
+    if (headingType != null) {
+        const nameType = headingType.textContent
+        if (nameType == 'latestproduct')
+            headingType.innerText = 'Sản phẩm mới nhất'
+        else if (nameType == 'bestseller')
+            headingType.innerText = 'Sản phẩm bán chạy nhất'
+
+    }
+
+    if (headingGender != null) {
+        const nameGender = headingGender.textContent
+        if (nameGender == 'male')
+            headingGender.innerText = 'Giày nam'
+        else if (nameGender == 'female')
+            headingGender.innerText = 'Giày nữ'
+    }
+
+    if (headingBrand != null) {
+        const nameBrand = headingBrand.textContent
+        headingBrand.innerText = `Giày ${nameBrand}`
+   
+    }
+</script>

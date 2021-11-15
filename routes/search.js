@@ -17,13 +17,31 @@ router.get('/search', (req, res, next) => {
                 return res.status(500).json('error');
             }
             if (data.length == 0) {
-                return res.status(404).render('search', { valueSearch: searchWord, messageErrorNotFound: `Sản phẩm " ${searchWord} " không tìm thấy !!`, role: role, name: name });
+                return res.status(404).render('search', { 
+                    valueSearch: searchWord, 
+                    messageErrorNotFound: `Sản phẩm " ${searchWord} " không tìm thấy !!`, 
+                    role: role, 
+                    name: name,
+                    style: 'search.css'
+                });
             }
-            return res.render('search', { valueSearch: searchWord, productSearch: multipleMongooseToObject(data), role: role, name: name });
+            return res.render('search', { 
+                valueSearch: searchWord, productSearch: multipleMongooseToObject(data), 
+                role: role,
+                name: name,
+                style: 'search.css'
+
+             });
         })
     }
     else {
-        return res.status(404).render('search', { messageErrorNotFound: "Sản phẩm của bạn không tìm thấy !!", role: role, name: name })
+        return res.status(404).render('search', { 
+            messageErrorNotFound: "Sản phẩm của bạn không tìm thấy !!", 
+            role: role,
+            name: name,
+            style: 'search.css'
+
+         })
     }
 })
 

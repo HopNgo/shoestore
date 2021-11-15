@@ -4,7 +4,7 @@ var user = require('../models/user');
 var bcrypt = require('bcrypt');
 
 router.get('/signup', (req, res, nxt) => {
-    res.render('signup');
+    res.render('signup', {style: 'login.css'});
 });
 
 

@@ -1,0 +1,86 @@
+<div class="product-detail">
+    <div class="row">
+        <div class="col img">
+            <img src="{{product.img}}" alt="">
+        </div>
+        <div class="col info">
+            <h3>{{product.name}}</h3>
+            
+            <div class="price">
+                <span class="sale">{{product.costNew}}.000đ</span>
+                <span class="old">{{product.costOld}}.000đ</span>
+            </div>
+            <div class="size">
+                <p>Kích cỡ</p>
+                <input type="radio" name="size" value="37" id="size37" checked>
+                <label class="active" for="size37">37</label>
+
+                <input type="radio" name="size" value="38" id="size38">
+                <label for="size38">38</label>
+
+                <input type="radio" name="size" value="39" id="size39">
+                <label for="size39">39</label>
+
+                <input type="radio" name="size" value="40" id="size40">
+                <label for="size40">40</label>
+
+            </div>
+            <div class="count">
+                <p>Số lượng</p>
+                <button id="decrease">-</button>
+                <input type="text" value="1" id="count">
+                <button id="increase">+</button>
+            </div>
+            <button class="buy">Mua ngay</button>
+        </div>
+    </div>
+</div>
+
+<script>
+        const radios = document.querySelectorAll('input[name="size"]')
+
+        radios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                const labels = document.querySelectorAll('label')
+                labels.forEach(function(label) {
+                        if (label.classList.contains('active'))
+                            label.classList.remove('active')
+                })
+                const id = radio.id
+                
+                const labelChecked = document.querySelector(`label[for=${id}]`)
+                labelChecked.classList.add('active')
+            })
+        });
+
+
+
+        const decreaseBtn = document.getElementById('decrease');
+        const increaseBtn = document.getElementById('increase');
+        const count = document.getElementById('count')
+        
+        //console.log(countValue)
+
+        decreaseBtn.onclick = function(e) {
+            let countValue = count.value;
+            --countValue;
+            if (countValue <= 0) {
+                count.value = 0;
+                decreaseBtn.disabled = true;
+                decreaseBtn.style.cursor = 'default';
+            }
+                
+            else
+                count.value = countValue;
+        }
+        increaseBtn.onclick = function(e) {
+            let countValue = count.value;
+            count.value = ++countValue; 
+            if (count.value > 0 ) {
+                decreaseBtn.style.cursor = 'pointer';
+                decreaseBtn.disabled = false;
+            }
+        }
+
+    
+</script>
