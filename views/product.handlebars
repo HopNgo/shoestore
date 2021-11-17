@@ -3,27 +3,36 @@
     <!-- sản phẩm mới nhất start  -->
 
     <section class="latest-products">
-        <section class="filter">
-            <p>Bộ lọc<i class="fas fa-chevron-down"></i></p>
-            <ul>
-                <li> <a href="/brand/adidas"> Giày Adidas</a> </li>
-                <li><a href="/brand/nike">Giày Nike</a></li>
-                <li> <a href="/brand/converse">Giày Converse</a></li>
-                <li> <a href="/gender/male">Giày Nam</a></li>
-                <li> <a href="/gender/female">Giày Nữ</a></li>
-            </ul>
-        </section>
-        {{#if type}}
-        <h1 id="heading-type">{{type}}</h1>
-        {{/if}}
-        {{#if gender}}
-        <h1 id="heading-gender">{{gender}}</h1>
-        {{/if}}
-        {{#if brand}}
-        <h1 id="heading-brand">{{brand}}</h1>
-        {{/if}}
+        <div class="top">
+           <div class="container">
+                <div class="row">
+                
+            {{#if type}}
+            <h1 id="heading-type">{{type}}</h1>
+            {{/if}}
+            {{#if gender}}
+            <h1 id="heading-gender">{{gender}}</h1>
+            {{/if}}
+            {{#if brand}}
+            <h1 id="heading-brand">{{brand}}</h1>
+            {{/if}}
+
+            <div class="filter">
+                    <p>Bộ lọc<i class="fas fa-chevron-down"></i></p>
+                    <ul>
+                        <li> <a href="/brand/adidas"> Giày Adidas</a> </li>
+                        <li><a href="/brand/nike">Giày Nike</a></li>
+                        <li> <a href="/brand/converse">Giày Converse</a></li>
+                        <li> <a href="/gender/male">Giày Nam</a></li>
+                        <li> <a href="/gender/female">Giày Nữ</a></li>
+                    </ul>
+            </div>
+            </div>
+           </div>
+        </div>
         <hr>
-        <div class="product-list">
+        <div class="container">
+            <div class="row product-list">
             {{#each products}}
             <div class="product-item">
                 <a href="/product/{{this.slug}}">
@@ -52,6 +61,7 @@
             </div>
             {{/each}}
         </div>
+        </div>
 
         <div class="pages">
             <ul>
@@ -78,8 +88,9 @@
                 </li>
             </ul>
         </div>
-    </section>
+    </section>  
     <!-- sản phẩm mới nhất end  -->
+
 
 </main>
 

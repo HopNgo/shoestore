@@ -40,7 +40,6 @@ router.get('/search', (req, res, next) => {
             role: role,
             name: name,
             style: 'search.css'
-
          })
     }
 })

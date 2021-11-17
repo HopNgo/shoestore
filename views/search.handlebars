@@ -3,25 +3,34 @@
     <!-- sản phẩm mới nhất start  -->
 
     <section class="latest-products">
-        {{#if messageErrorNotFound}}
-        {{else}}
-        <section class="filter">
-            <p>Bộ lọc<i class="fas fa-chevron-down"></i></p>
-            <ul>
-                <li> <a href="/brand/adidas"> Giày Adidas</a> </li>
-                <li><a href="/brand/nike">Giày Nike</a></li>
-                <li> <a href="/brand/converse">Giày Converse</a></li>
-                <li> <a href="/gender/male">Giày Nam</a></li>
-                <li> <a href="/gender/female">Giày Nữ</a></li>
-            </ul>
-        </section>
-        {{/if}}
-        <h1>Sản phẩm tìm kiếm </h1>
-        <div class="product-list">
+        <div class="container">
+            <div class="row">
+                {{#if messageErrorNotFound}}
+                {{else}}
+                <h1>Sản phẩm tìm kiếm </h1>
+                <section class="filter">
+                    <p>Bộ lọc<i class="fas fa-chevron-down"></i></p>
+                    <ul>
+                        <li> <a href="/brand/adidas"> Giày Adidas</a> </li>
+                        <li><a href="/brand/nike">Giày Nike</a></li>
+                        <li> <a href="/brand/converse">Giày Converse</a></li>
+                        <li> <a href="/gender/male">Giày Nam</a></li>
+                        <li> <a href="/gender/female">Giày Nữ</a></li>
+                    </ul>
+                </section>
+            {{/if}}
+            </div>
+        </div>
+        <div class="container">
+            <div class="product-list row">
             {{#each productSearch}}
             <div class="product-item">
-                <img src="{{this.img}}" alt="">
-                <h3 class="product-name">{{this.name}}</h3>
+                <a href="/product/{{this.slug}}">
+                    <img src="{{this.img}}" alt="">
+                </a>
+                <a href="/product/{{this.slug}}">
+                    <h3 class="product-name">{{this.name}}</h3>
+                </a>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -38,6 +47,7 @@
                 </button>
             </div>
             {{/each}}
+        </div>
         </div>
 
         {{#if messageErrorNotFound}}

@@ -36,7 +36,7 @@ app.use(function (req, res, next) {
     next();
 })
 // path database
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/Shop1', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cookieParser());
 // view engine setup

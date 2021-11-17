@@ -40,55 +40,57 @@
 
 <script src="/js/light-box-add.js"></script>
 
-<div class="row">
-    <h3>DANH SÁCH SẢN PHẨM</h3>
-    <div class="manage">
-        {{#if messageAdd}}
-        <p class="success">* {{messageAdd}}</p>
-        {{/if}}
-        {{#if messageUpdate}}
-        <p class="success">* {{messageUpdate}}</p>
-        {{/if}}
-        {{#if messageDelete}}
-        <p class="success">* {{messageDelete}}</p>
-        {{/if}}
-        <button class="btn-add"> Thêm sản phẩm </button>
+<div class="manager">
+    <div class="row">
+        <h3>DANH SÁCH SẢN PHẨM</h3>
+        <div class="manage">
+            {{#if messageAdd}}
+            <p class="success">* {{messageAdd}}</p>
+            {{/if}}
+            {{#if messageUpdate}}
+            <p class="success">* {{messageUpdate}}</p>
+            {{/if}}
+            {{#if messageDelete}}
+            <p class="success">* {{messageDelete}}</p>
+            {{/if}}
+            <button class="btn-add"> Thêm sản phẩm </button>
 
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên giày</th>
+                    <th>Hình ảnh</th>
+                    <th>Giới tính</th>
+                    <th>Giá cũ</th>
+                    <th>Giá mới</th>
+                    <th>Thương hiệu</th>
+                    <th>Loại</th>
+                    <th colspan="2">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td>{{sum @index 1}}</td>
+                    <td>{{this.name}}</td>
+                    <td><img src="{{this.img}}" alt=""></td>
+                    <td>{{this.gender}}</td>
+                    <td>{{this.costOld}}</td>
+                    <td>{{this.costNew}}</td>
+                    <td>{{this.brand}}</td>
+                    <td>{{this.type}}</td>
+                    <td class="update"><a href="/admin/manage/edit/{{this._id}}">Chỉnh sửa</a></td>
+                    <td class="delete"><button data-id="{{this._id}}"> Xóa </button></td>
+                </tr>
+                {{/each}}
+                <script src="/js/translate.js"></script>
+            </tbody>
+        </table>
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>STT</th>
-                <th>Tên giày</th>
-                <th>Hình ảnh</th>
-                <th>Giới tính</th>
-                <th>Giá cũ</th>
-                <th>Giá mới</th>
-                <th>Thương hiệu</th>
-                <th>Loại</th>
-                <th colspan="2">Chức năng</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each products}}
-            <tr>
-                <td>{{sum @index 1}}</td>
-                <td>{{this.name}}</td>
-                <td><img src="{{this.img}}" alt=""></td>
-                <td>{{this.gender}}</td>
-                <td>{{this.costOld}}</td>
-                <td>{{this.costNew}}</td>
-                <td>{{this.brand}}</td>
-                <td>{{this.type}}</td>
-                <td class="update"><a href="/admin/manage/edit/{{this._id}}">Chỉnh sửa</a></td>
-                <td class="delete"><button data-id="{{this._id}}"> Xóa </button></td>
-            </tr>
-            {{/each}}
-            <script src="/js/translate.js"></script>
-        </tbody>
-    </table>
-</div>
 
+</div>
 {{!-- Confirm Delete --}}
 <div class="light-box-delete-product">
     <div class="model-delete">

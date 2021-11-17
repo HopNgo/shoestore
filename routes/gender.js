@@ -17,7 +17,7 @@ router.get('/gender/:slug', function (req, res, next) {
             name: name, 
             role: role,
             style: 'styleLatestProduct.css',
-            reponsive: 'responseLatestProduct.css',
+            responsive: 'responseLatestProduct.css',
             gender: gender
 
         }));
