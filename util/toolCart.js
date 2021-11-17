@@ -1,30 +1,55 @@
 module.exports = {
     cart: function (oldCart) {
-        this.items = oldCart.items || {};
+        this.items = oldCart.items || [];
         this.totalQty = oldCart.totalQty || 0;
         this.totalPrice = oldCart.totalPrice || 0;
 
-        this.add = function (item, id) {
-            let storedItems = this.items[id];
-            if (!storedItems) {
-                storedItems = this.items[id] = { item: item, qty: 0, price: 0 };
+        this.add = function (item, id, qty, size) {
+
+            let arrayItems = this.items;
+            let flag = true;
+            arrayItems.map(function (item) {
+                if (item.id == id && item.size == parseInt(size)) {
+                    item.qty += parseInt(qty);
+                    item.price = item.qty * parseInt(item.product.costNew);
+                    flag = false;
+                }
+            })
+            if (flag == true) {
+                const itemData = {
+                    id: id,
+                    product: item,
+                    qty: parseInt(qty),
+                    size: parseInt(size),
+                    price: parseInt(item.costNew) * parseInt(qty)
+                }
+                arrayItems.push(itemData);
             }
-            storedItems.qty++;
-            storedItems.price = storedItems.item.costNew * storedItems.qty;
-            this.totalQty++;
-            this.totalPrice += parseInt(storedItems.item.costNew);
+            let totalQtyArray = 0;
+            let totalPriceArray = 0;
+            arrayItems.map(function (item) {
+                totalQtyArray += item.qty;
+                totalPriceArray += item.price;
+            })
+            this.totalQty = totalQtyArray;
+            this.totalPrice = totalPriceArray;
+
         }
         this.generateArray = function () {
-            let arr = [];
-            for (let id in this.items) {
-                arr.push(this.items[id])
-            }
-            return arr;
+            return this.items;
         }
-        this.removeItemCart = function (id) {
-            const priceItemRemove = this.items[id].price;
-            const qtyItemRemove = this.items[id].qty;
-            delete this.items[id];
+        this.removeItemCart = function (id, size) {
+            let priceItemRemove = 0;
+            let qtyItemRemove = 0;
+            let arrayItems = this.items;
+            arrayItems.map(function (item, index) {
+                if (item.id == id && item.size == size) {
+                    qtyItemRemove = item.qty;
+                    priceItemRemove = item.price;
+                    arrayItems.splice(index, 1);
+                }
+            })
+            this.items = arrayItems;
             this.totalPrice -= priceItemRemove;
             this.totalQty -= qtyItemRemove;
         }

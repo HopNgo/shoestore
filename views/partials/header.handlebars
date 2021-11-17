@@ -34,6 +34,9 @@
             <a href="/admin/manage"><span>Quản lý sản phẩm</span></a>
             {{else}}
             <a href="/shop/shopping-cart"><i class="fas fa-shopping-cart"></i><span>Giỏ hàng</span></a>
+            {{/if}}
+
+            {{#if session.cart.totalQty}}
             <span class="bagde"> {{session.cart.totalQty}} </span>
             {{/if}}
         </div>

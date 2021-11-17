@@ -5,7 +5,7 @@
         </div>
         <div class="col info">
             <h3>{{product.name}}</h3>
-            
+
             <div class="price">
                 <span class="sale">{{product.costNew}}.000đ</span>
                 <span class="old">{{product.costOld}}.000đ</span>
@@ -31,56 +31,73 @@
                 <input type="text" value="1" id="count">
                 <button id="increase">+</button>
             </div>
-            <button class="buy">Mua ngay</button>
+            <form class="form-add-to-cart" method="POST" action="/add-to-cart/{{product._id}}">
+                <input class="qty-submit" type="hidden" name="qty" value="">
+                <input class="size-submit" type="hidden" name="size" value="">
+                <button class="buy">Thêm vào giỏ hàng</button>
+            </form>
         </div>
     </div>
 </div>
 
 <script>
-        const radios = document.querySelectorAll('input[name="size"]')
+    const radios = document.querySelectorAll('input[name="size"]');
+    const qtySubmitElement = document.querySelector('.qty-submit');
+    const sizeSubmitElement = document.querySelector('.size-submit');
+    const sizeActive = document.querySelector('.size label[class="active"]').innerText;
+    sizeSubmitElement.setAttribute('value', sizeActive);
+    const inputQuantityValue = document.querySelector('.count input').getAttribute('value');
+    qtySubmitElement.setAttribute('value', inputQuantityValue)
 
-        radios.forEach(function(radio) {
-            radio.addEventListener('change', function() {
-                const labels = document.querySelectorAll('label')
-                labels.forEach(function(label) {
-                        if (label.classList.contains('active'))
-                            label.classList.remove('active')
-                })
-                const id = radio.id
-                
-                const labelChecked = document.querySelector(`label[for=${id}]`)
-                labelChecked.classList.add('active')
+    radios.forEach(function (radio) {
+        radio.addEventListener('change', function () {
+            const labels = document.querySelectorAll('label')
+            labels.forEach(function (label) {
+                if (label.classList.contains('active'))
+                    label.classList.remove('active')
             })
-        });
+            const id = radio.id
+
+            const labelChecked = document.querySelector(`label[for=${id}]`)
+            labelChecked.classList.add('active')
+            sizeSubmitElement.setAttribute('value', labelChecked.innerText)
+        })
+    });
 
 
 
-        const decreaseBtn = document.getElementById('decrease');
-        const increaseBtn = document.getElementById('increase');
-        const count = document.getElementById('count')
-        
-        //console.log(countValue)
+    const decreaseBtn = document.getElementById('decrease');
+    const increaseBtn = document.getElementById('increase');
+    const count = document.getElementById('count')
 
-        decreaseBtn.onclick = function(e) {
-            let countValue = count.value;
+    //console.log(countValue)
+
+    decreaseBtn.onclick = function (e) {
+        let countValue = count.getAttribute('value');
+        if (countValue == 1) {
+            count.getAttribute('value') = 1;
+            decreaseBtn.disabled = true;
+            decreaseBtn.style.cursor = 'default';
+        }
+        else {
             --countValue;
-            if (countValue <= 0) {
-                count.value = 0;
-                decreaseBtn.disabled = true;
-                decreaseBtn.style.cursor = 'default';
-            }
-                
-            else
-                count.value = countValue;
-        }
-        increaseBtn.onclick = function(e) {
-            let countValue = count.value;
-            count.value = ++countValue; 
-            if (count.value > 0 ) {
-                decreaseBtn.style.cursor = 'pointer';
-                decreaseBtn.disabled = false;
-            }
+            count.setAttribute('value', countValue);
+            const qtyValue = count.getAttribute('value');
+            qtySubmitElement.setAttribute('value', qtyValue);
+
         }
 
-    
+    }
+    increaseBtn.onclick = function (e) {
+        let countValue = count.getAttribute('value');
+        ++countValue;
+        count.setAttribute('value', countValue);
+        const qtyValue = count.getAttribute('value');
+        qtySubmitElement.setAttribute('value', qtyValue);
+        if (count.getAttribute('value') > 0) {
+            decreaseBtn.style.cursor = 'pointer';
+            decreaseBtn.disabled = false;
+        }
+    }
+
 </script>

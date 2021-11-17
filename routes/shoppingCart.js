@@ -9,7 +9,9 @@ router.get('/shop/shopping-cart', requireAuth, function (req, res, next) {
         return res.render('cartEmpty');
     }
     const newCart = new cart(req.session.cart);
+    console.log(req.session.cart);
     res.render('cart', { productsCart: newCart.generateArray(), totalPrice: newCart.totalPrice, nameUser: req.cookies.nameUser, address: req.cookies.address })
 })
 
 module.exports = router;
+

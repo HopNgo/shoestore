@@ -14,13 +14,13 @@
             </ul>
         </section>
         {{#if type}}
-            <h1 id="heading-type">{{type}}</h1>
+        <h1 id="heading-type">{{type}}</h1>
         {{/if}}
         {{#if gender}}
-            <h1 id="heading-gender">{{gender}}</h1>
+        <h1 id="heading-gender">{{gender}}</h1>
         {{/if}}
-         {{#if brand}}
-            <h1 id="heading-brand">{{brand}}</h1>
+        {{#if brand}}
+        <h1 id="heading-brand">{{brand}}</h1>
         {{/if}}
         <hr>
         <div class="product-list">
@@ -29,12 +29,12 @@
                 <a href="/product/{{this.slug}}">
                     <img src="{{this.img}}" alt="">
                 </a>
-               
+
                 <a href="/product/{{this.slug}}">
                     <h3 class="product-name">{{this.name}}</h3>
                 </a>
 
-                
+
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -47,7 +47,7 @@
                     <span class="old">{{this.costOld}}.000đ</span>
                 </div>
                 <button>
-                    <a href="/add-to-cart/{{this._id}}">Thêm vào giỏ hàng</a>
+                    <a href="/product/{{this.slug}}">Mua ngay</a>
                 </button>
             </div>
             {{/each}}
@@ -108,6 +108,6 @@
     if (headingBrand != null) {
         const nameBrand = headingBrand.textContent
         headingBrand.innerText = `Giày ${nameBrand}`
-   
+
     }
 </script>
