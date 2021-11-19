@@ -1,6 +1,19 @@
+<<<<<<< HEAD
+=======
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+>>>>>>> 2fe848f5885d21a0d7e046eb3718faf06b3d79d4
 /* voucher */
 .voucher {
-  display: flex;
   margin: 30px 36px;
 }
 
@@ -21,6 +34,8 @@
   height: 600px;
   position: relative;
 }
+
+
 
 .banner img {
   position: absolute;
@@ -97,14 +112,12 @@
 /* banner end  */
 
 .commit {
-  display: flex;
-  flex-wrap: nowrap;
   background-color: #f0f0f0;
 }
 
 .commit .commit-col {
   flex-basis: calc(100% / 3);
-  padding: 30px;
+  padding: 50px 30px;
   text-align: center;
   font-size: 18px;
 }
@@ -170,6 +183,7 @@ main > .latest-products .product-list .product-item h3 {
   font-size: 18px;
   flex: 1;
   margin-top: 10px;
+  padding: 0 4px;
 }
 
 main > .latest-products .product-list .product-item .price {
@@ -185,18 +199,13 @@ main > .latest-products .product-list .product-item .price .old {
 main > .latest-products .product-list .product-item button {
   transition: ease 1s;
   background-image: linear-gradient(to right, #fa9e1b, #8d4fff);
-  /* position: absolute; */
   bottom: 0;
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
   border: none;
   border-radius: 20px;
   cursor: pointer;
   padding: 8px 20px;
   box-shadow: 0 2px 10px black;
   color: black;
-  /* width: 50%; */
-  /* margin:0 auto; */
 }
 
 main > .latest-products .product-list .product-item button a {
@@ -243,16 +252,18 @@ main > .latest-products button i {
 /* sản phẩm mới nhât end  */
 
 /* Best Selling Prodct  start*/
-
+/* main > .best-selling-products .container {
+  overflow: hidden;
+} */
 main > .best-selling-products .product-list {
-  margin: 30px;
+  margin: 30px 0;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 main > .best-selling-products .product-list .product-item {
-  width: calc(calc(100% / 4) - 20px);
+  min-width: calc(25% - 20px);
   margin: 20px 10px;
   line-height: 1.6;
   text-align: center;

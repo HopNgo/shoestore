@@ -2,9 +2,9 @@ var express = require('express');
 var { multipleMongooseToObject } = require('../util/toolMongoose')
 var router = express.Router();
 var homeproduct = require('../models/homeproduct');
-const { requireAuth } = require('../middleware/authMiddleware');
+const { adminAuth } = require('../middleware/authMiddleware');
 
-router.get('/admin/manage', requireAuth, function (req, res, next) {
+router.get('/admin/manage', adminAuth, function (req, res, next) {
     const name = req.cookies.nameUser;
     let role = req.cookies.role;
     if (role == "user") {
@@ -32,7 +32,7 @@ router.get('/admin/manage', requireAuth, function (req, res, next) {
     })
 
 })
-router.post('/admin/manage', requireAuth, function (req, res, next) {
+router.post('/admin/manage', adminAuth, function (req, res, next) {
 
     const formData = req.body;
     const data = new homeproduct(formData);

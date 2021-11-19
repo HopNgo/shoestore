@@ -1,21 +1,35 @@
-header .container {
-  box-shadow: 0 2px 5px black;
-}
 
-header .container nav ul .nav-latest-products a {
-  color: red;
-}
 
 /* sản phẩm mới nhât start  */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
 
 main .latest-products {
   margin-top: 150px;
 }
-main .latest-products > h1 {
+
+
+main .latest-products h1 {
   color: var(--primary-color);
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   font-size: 30px;
+}
+
+main .latest-products .filter {
+  position: relative;
+}
+main .latest-products .filter ul {
+  min-width: 150px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px black;
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 10;
 }
 main .filter p {
   font-size: 20px;
@@ -36,17 +50,7 @@ main .filter ul li a {
   text-decoration: none;
   color: black;
 }
-main .latest-products .filter {
-  position: absolute;
-  left: 1150px;
-  z-index: 1;
-}
-main .latest-products .filter ul {
-  min-width: 150px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px black;
-  display: none;
-}
+
 
 main .latest-products .filter:hover ul {
   display: block;
@@ -55,15 +59,23 @@ main .latest-products .filter:hover ul {
 main .latest-products .filter ul li:hover {
   background-color: #ccc;
 }
+
+
 main .latest-products .product-list {
+<<<<<<< HEAD
   margin: 30px 10px;
   display: flex;
   justify-content: flex-start;
+=======
+  margin: 30px  -16px;
+  justify-content: flex-start; 
+>>>>>>> 2fe848f5885d21a0d7e046eb3718faf06b3d79d4
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 main .latest-products .product-list .product-item {
-  width: calc(calc(100% / 5) - 32px);
+  width: calc(calc(100% / 4) - 32px);
   margin: 20px 16px;
   line-height: 1.6;
   text-align: center;
@@ -74,7 +86,7 @@ main .latest-products .product-list .product-item {
   border-radius: 15px;
 }
 
-main > .latest-products .product-list .product-item a {
+main .latest-products .product-list .product-item a {
   font-size: 16px;
   color: black;
   flex: 1;
@@ -89,6 +101,7 @@ main .latest-products .product-list .product-item img {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
 main .latest-products .product-list .product-item:hover {
   opacity: 0.9;
 }
@@ -103,7 +116,7 @@ main .latest-products .product-list .product-item .price .old {
   text-decoration: line-through;
 }
 
-main > .latest-products .product-list .product-item .fas.fa-star {
+main .latest-products .product-list .product-item .fas.fa-star {
   color: #fa9e1b;
 }
 

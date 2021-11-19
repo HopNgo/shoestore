@@ -22,7 +22,7 @@ router.get('/', function (req, res, next) {
             name: name, 
             role: role,
             style: 'app.css',
-            reponsive: 'responseApp.css'
+            responsive: 'responseApp.css'
          }));
 
 })
