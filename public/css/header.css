@@ -123,7 +123,8 @@ header .header-top .user a span {
 }
 
 header .header-top .user a:hover i,
-header .header-top .user a:hover span {
+header .header-top .user a:hover span,
+header .header-top .user .sign-out:hover {
   transform: scale(1.2);
   color: rgb(228, 226, 226);
 }

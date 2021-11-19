@@ -23,6 +23,7 @@ const addToCartRouter = require('./routes/addToCart');
 const shoppingCartRouter = require('./routes/shoppingCart');
 const detailProductRouter = require('./routes/detailProduct');
 const removeProductCartRouter = require('./routes/removeProductCart');
+const orderSuccessRouter = require('./routes/orderSuccess');
 
 //session
 app.use(session({
@@ -38,7 +39,7 @@ app.use(function (req, res, next) {
 // path database
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use(cookieParser());
+app.use(cookieParser('mysecret'));
 // view engine setup
 app.engine('handlebars', handlebars({
     helpers: {
@@ -55,7 +56,6 @@ app.use(methodOverride('_method'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -74,6 +74,7 @@ app.use('/', deleteRouter);
 app.use('/', addToCartRouter);
 app.use('/', shoppingCartRouter);
 app.use('/', removeProductCartRouter);
+app.use('/', orderSuccessRouter);
 
 app.listen(port, () => { console.log(`Your port at http://localhost:${port}`) });
 
