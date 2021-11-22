@@ -1,0 +1,46 @@
+<div class="profile">
+    <div class="container">
+        <div class="row">
+            <div class="menu">
+                <ul>
+                    <li class="active">
+                        <a href=""><i class="fas fa-cog"></i>Chung</a>
+                        <span>{{message}}</span>
+                    </li>
+                    <li>
+                        <a href=""><i class="fas fa-shield-alt"></i>Đổi mật khẩu</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="profile__general">
+                <h2 class="heading">Thông tin tài khoản chung <button class="edit-profile">Chỉnh sửa</button></h2>
+                <hr>
+                <table>
+                    <tr>
+                        <th>Họ tên</th>
+                        <td>{{user.name}}</td>
+                        <td rowspan="2">
+                                <form method="POST" action="/{{user._id}}?_method=PUT" id="form-profile">
+                                    <label for="name">Họ tên</label>
+                                    <input type="text" name="name" id="name" value="{{user.name}}">
+                                    <button type="submit" class="submit">Cập nhật</button> 
+                                </form>
+                        </td>
+                    </tr>
+                        <th>Địa chỉ</th>
+                        <td>{{user.address.province}}-{{user.address.district}}-{{user.address.subDistrict}}</td>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const formProfile = document.getElementById('form-profile');
+    const btnEdit = document.querySelector('.edit-profile');
+
+    btnEdit.onclick = function() {
+        formProfile.classList.toggle('active');
+    }
+</script>
+

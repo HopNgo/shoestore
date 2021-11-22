@@ -38,6 +38,7 @@ router.get('/search', (req, res, next) => {
         return res.status(404).render('search', { 
             messageErrorNotFound: "Sản phẩm của bạn không tìm thấy !!", 
             role: role,
+            userid: req.cookies.userid,
             name: name,
             style: 'search.css'
          })

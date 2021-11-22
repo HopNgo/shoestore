@@ -19,7 +19,8 @@ router.get('/', function (req, res, next) {
         .then(products => res.render('home', { 
             products: multipleMongooseToObject(products), 
             bestseller: multipleMongooseToObject(dataBestSeller), 
-            name: name, 
+            name: name,
+            userid: req.cookies.userid, 
             role: role,
             style: 'app.css',
             responsive: 'responseApp.css'

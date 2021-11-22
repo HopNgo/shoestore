@@ -14,7 +14,8 @@ router.get('/:product', function (req, res, next) {
     homeproduct.find({ type: type })
         .then(products => res.render('product', { 
             products: multipleMongooseToObject(products), 
-            name: name, 
+            name: name,
+            userid: req.cookies.userid, 
             role: role, 
             style: 'styleLatestProduct.css',
             responsive: 'responseLatestProduct.css',

@@ -20,7 +20,7 @@ router.post('/signin', async (req, res, next) => {
             return res.render('signin', { message: "* Mật khẩu của bạn không đúng" })
 
         }
-
+        res.cookie('userid', data._id.toString());
         res.cookie('nameUser', data.name);
         res.cookie('emailUser', data.email);
         res.cookie('role', data.role);

@@ -132,15 +132,10 @@ header .header-top .user a span {
 }
 
 header .header-top .user a:hover i,
-<<<<<<< HEAD
 header .header-top .user a:hover span,
 header .header-top .user .sign-out:hover {
   transform: scale(1.2);
   color: rgb(228, 226, 226);
-=======
-header .header-top .user a:hover span {
-  transform: scale(1.05);
->>>>>>> 2fe848f5885d21a0d7e046eb3718faf06b3d79d4
 }
 
 /* container start  */

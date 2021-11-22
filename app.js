@@ -25,6 +25,8 @@ const detailProductRouter = require('./routes/detailProduct');
 const removeProductCartRouter = require('./routes/removeProductCart');
 const orderSuccessRouter = require('./routes/orderSuccess');
 
+const profileRouter = require('./routes/profile');
+
 //session
 app.use(session({
     resave: true,
@@ -63,6 +65,7 @@ app.use('/', detailProductRouter);
 app.use('/', searchRouter);
 app.use('/', signinRouter);
 app.use('/', signupRouter);
+app.use('/', profileRouter);
 app.use('/', homeRouter);
 app.use('/', destroyCookieRouter);
 app.use('/', genderRouter);

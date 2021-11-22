@@ -16,6 +16,7 @@ router.get('/product/:slug', function (req, res, next) {
             res.render('detailProduct', {
                 product: product,
                 name: name,
+                userid: req.cookies.userid,
                 role: role,
                 style: 'detailProduct.css'
             });

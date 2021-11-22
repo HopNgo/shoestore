@@ -16,6 +16,7 @@ router.get('/gender/:slug', function (req, res, next) {
             products: multipleMongooseToObject(products), 
             name: name, 
             role: role,
+            userid: req.cookies.userid,
             style: 'styleLatestProduct.css',
             responsive: 'responseLatestProduct.css',
             gender: gender

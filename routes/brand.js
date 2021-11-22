@@ -15,6 +15,7 @@ router.get('/brand/:slug', function (req, res, next) {
         .then(products => res.render('product', { 
             products: multipleMongooseToObject(products), 
             name: name, 
+            userid: req.cookies.userid,
             role: role,
             style: 'styleLatestProduct.css',
             responsive: 'responseLatestProduct.css',

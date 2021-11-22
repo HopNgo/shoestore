@@ -14,7 +14,7 @@ router.get('/shop/shopping-cart', requireAuth, function (req, res, next) {
         return res.render('cartEmpty', { name: name, role: role });
     }
     let newCart = new cart(req.session.cart ? req.session.cart : {});
-    res.render('cart', { name: name, role: role, productsCart: newCart.generateArray(), totalPrice: newCart.totalPrice, nameUser: req.cookies.nameUser, address: req.cookies.address })
+    res.render('cart', { name: name, userid: req.cookies.userid, role: role, productsCart: newCart.generateArray(), totalPrice: newCart.totalPrice, nameUser: req.cookies.nameUser, address: req.cookies.address })
 })
 
 module.exports = router;
