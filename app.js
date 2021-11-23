@@ -42,8 +42,9 @@ app.use(function (req, res, next) {
     next();
 })
 
+const URL_DATABASE = 'mongodb+srv://admin:dJ9tbbDuhve9oGx1@cluster0.oaccl.mongodb.net/shopstore_dev?retryWrites=true&w=majority';
 // path database
-mongoose.connect(process.env.URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cookieParser('mysecret'));
 // view engine setup
