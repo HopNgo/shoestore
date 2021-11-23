@@ -62,7 +62,7 @@ router.get('/shop/shopping-cart/order=success', (req, res) => {
         if (err) {
             return console.log(err);
         }
-        res.render('orderSuccess', { name: name, userid: req.cookies.userid, role: role });
+        res.render('orderSuccess', { style: 'cart.css', name: name, userid: req.cookies.userid, role: role });
     })
 })
 
