@@ -24,7 +24,6 @@ const shoppingCartRouter = require('./routes/shoppingCart');
 const detailProductRouter = require('./routes/detailProduct');
 const removeProductCartRouter = require('./routes/removeProductCart');
 const orderSuccessRouter = require('./routes/orderSuccess');
-
 const profileRouter = require('./routes/profile');
 const flash = require('connect-flash');
 
@@ -42,6 +41,7 @@ app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
 })
+
 // path database
 mongoose.connect(process.env.URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
 
