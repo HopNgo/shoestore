@@ -2,17 +2,19 @@
     <p class="error"> {{message}} </p>
     <form method="POST" action="/signup" class="form-signup" id="signup">
         <h1 class="form-title">Đăng ký</h1>
-        <div class="form-text">
+        <div class="form-group">
             <input type="text" placeholder="Tên của bạn" name="name">
         </div>
-        <div class="form-text">
+        <div class="form-group">
             <input type="text" placeholder="Email/Số điện thoại" name="email">
         </div>
-        <div class="form-text">
+        <div class="form-group">
             <input type="password" placeholder="Mật khẩu" name="password">
+            <i class="fas fa-eye-slash eye"></i>
         </div>
-        <div class="form-text">
+        <div class="form-group">
             <input type="password" placeholder="Nhập lại mật khẩu">
+            <i class="fas fa-eye-slash eye"></i>
         </div>
         <div class="select-address">
             <label for="">Địa chỉ nhận hàng</label> <br>
@@ -108,4 +110,22 @@
         })
     })
 
+</script>
+
+<script>
+    const eyeSlashList = document.querySelectorAll('.eye')
+    eyeSlashList.forEach(function(eyeSlash, index) {
+        eyeSlash.onclick = (e) => {
+            console.log(e.target)
+            e.target.classList.toggle('fa-eye')
+            e.target.classList.toggle('fa-eye-slash')
+            const formGroup = e.target.parentElement
+            const formControl = formGroup.children[0];
+            if (formControl.type == 'text') {
+                formControl.type = 'password'
+            } else {
+                formControl.type = 'text'
+            }
+        }
+    })
 </script>
