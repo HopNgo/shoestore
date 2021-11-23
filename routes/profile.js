@@ -16,7 +16,8 @@ router.get('/profile/:id', (req, res, next) => {
             user = mongooseToObject(user);
             res.render('profile', {
                 user: user,
-                role: role, 
+                role: role,
+                userid: req.cookies.userid,
                 name: name,
                 style: 'profile.css',
                 success: req.flash('success'),

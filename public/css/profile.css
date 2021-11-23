@@ -107,7 +107,7 @@ table tr td:nth-child(3) {
 .profile__general #form-profile.active {
     display: block;
 }
-.profile__general form .form-group {
+.profile__general form .form-input {
     position: relative;
 }
 .profile__general form input {
@@ -153,6 +153,7 @@ table tr td:nth-child(3) {
 
 .profile__general.change-password form {
     background-color: #F0F2F5;
+    font-size: 20px;
 }
 
 .profile__general.change-password table {
@@ -160,3 +161,23 @@ table tr td:nth-child(3) {
     margin: 0 auto;
 }
 
+.profile__general.change-password .form-group.validate-success .form-control {
+    border: 1px solid #00A149;
+    box-shadow: 0 0 0 1px #00A149;
+}
+
+.profile__general.change-password .form-group.validate-error .form-control  {
+    border: 1px solid red;
+    box-shadow: 0 0 0 1px red;
+}
+
+.profile__general.change-password .form-group__message {
+    font-size: 16px;
+    margin-top: 6px;
+    color: red;
+    display: none;
+}
+
+.profile__general.change-password .form-group.validate-error .form-group__message {
+    display: block;
+}

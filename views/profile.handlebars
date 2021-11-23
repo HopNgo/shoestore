@@ -48,8 +48,10 @@
                             <th>Mật khẩu hiện tại</th>
                             <td>
                                <div class="form-group">
-                                    <input type="password" name="oldPass" class="old-pass">
-                                    <i class="fas fa-eye-slash eye"></i>
+                                   <div class="form-input">
+                                        <input class="form-control" type="password" name="oldPass" class="old-pass" required>
+                                        <i class="fas fa-eye-slash eye"></i>
+                                   </div>
                                </div>
                             </td>
                         </tr>
@@ -57,8 +59,10 @@
                             <th>Mật khẩu mới</th>
                             <td>
                                 <div class="form-group">
-                                    <input type="password" name="newPass" class="new-pass">
-                                    <i class="fas fa-eye-slash eye"></i>
+                                    <div class="form-input">
+                                        <input class="form-control new-pass" type="password" name="newPass" required>
+                                        <i class="fas fa-eye-slash eye"></i>
+                                    </div>
                                 </div>
                             </td>
                         </tr>
@@ -66,8 +70,11 @@
                             <th>Nhập lại mật khẩu mới</th>
                             <td>
                                 <div class="form-group">
-                                    <input type="password" class="confirm-new-pass">
-                                    <i class="fas fa-eye-slash eye"></i>
+                                    <div class="form-input">
+                                        <input class="form-control confirm-new-pass" type="password" required>
+                                        <i class="fas fa-eye-slash eye"></i>
+                                    </div>
+                                    <p class="form-group__message">Mật khẩu không khớp!!</p>
                                 </div>
                             </td>
                         </tr>
@@ -125,14 +132,53 @@
 
     const btnSubmitChangePassword = document.querySelector('.submit.btn-change-password')
     const formChangePassword = document.querySelector('.form-change-password')
+
+    function validateConfirmPassword() {
+        const newPassValue          = formChangePassword.querySelector('.new-pass').value;
+        const confirmNewPassValue   = formChangePassword.querySelector('.confirm-new-pass').value;
+
+        const formGroupNewPass              = formChangePassword.querySelector('.new-pass').parentElement.parentElement
+        const formGroupConfirmNewPass       = formChangePassword.querySelector('.confirm-new-pass').parentElement.parentElement
+        
+        if (confirmNewPassValue != newPassValue) {
+            if (formGroupNewPass.classList.contains('validate-success')) {
+                formGroupNewPass.classList.remove('validate-success')
+            }
+            if (formGroupConfirmNewPass.classList.contains('validate-success')) {
+                formGroupConfirmNewPass.classList.remove('validate-success')
+            }
+            formGroupNewPass.classList.add('validate-error')
+            formGroupConfirmNewPass.classList.add('validate-error')
+            return false;
+        }
+        else {
+            if (formGroupNewPass.classList.contains('validate-error')) {
+                formGroupNewPass.classList.remove('validate-error')
+            }
+            if (formGroupConfirmNewPass.classList.contains('validate-error')) {
+                formGroupConfirmNewPass.classList.remove('validate-error')
+            }
+            formGroupNewPass.classList.add('validate-success')
+            formGroupConfirmNewPass.classList.add('validate-success')
+            return true;
+        }   
+    }
+
+    const newPassInput  = formChangePassword.querySelector('.new-pass');
+    const confirmNewPassInput  = formChangePassword.querySelector('.confirm-new-pass');
+
     
+    confirmNewPassInput.addEventListener('blur', function() {
+            validateConfirmPassword()
+            newPassInput.addEventListener('blur', function() {
+                validateConfirmPassword()
+            })
+    })
     formChangePassword.addEventListener('submit', function(e) {
-       // e.preventDefault();
-        const newPassValue = formChangePassword.querySelector('.new-pass').value
-        const confirmNewPassValue = formChangePassword.querySelector('.confirm-new-pass').value
-        //if (confirmNewPassValue != newPassValue) {
-         //   alert('Không trùng!')
-        //}
+        e.preventDefault();
+        let isTrue = validateConfirmPassword()
+        if (isTrue)
+            formChangePassword.submit();
     })
     
 </script>
