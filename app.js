@@ -24,7 +24,6 @@ const shoppingCartRouter = require('./routes/shoppingCart');
 const detailProductRouter = require('./routes/detailProduct');
 const removeProductCartRouter = require('./routes/removeProductCart');
 const orderSuccessRouter = require('./routes/orderSuccess');
-
 const profileRouter = require('./routes/profile');
 
 //session
@@ -38,8 +37,9 @@ app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
 })
+
 // path database
-mongoose.connect('mongodb://localhost:27017/Shop1', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cookieParser('mysecret'));
 // view engine setup

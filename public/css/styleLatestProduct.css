@@ -62,14 +62,8 @@ main .latest-products .filter ul li:hover {
 
 
 main .latest-products .product-list {
-<<<<<<< HEAD
-  margin: 30px 10px;
-  display: flex;
-  justify-content: flex-start;
-=======
   margin: 30px  -16px;
   justify-content: flex-start; 
->>>>>>> 2fe848f5885d21a0d7e046eb3718faf06b3d79d4
   flex-wrap: wrap;
   align-items: stretch;
 }
