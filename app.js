@@ -25,6 +25,7 @@ const detailProductRouter = require('./routes/detailProduct');
 const removeProductCartRouter = require('./routes/removeProductCart');
 const orderSuccessRouter = require('./routes/orderSuccess');
 const profileRouter = require('./routes/profile');
+const flash = require('connect-flash');
 
 //session
 app.use(session({
@@ -32,6 +33,9 @@ app.use(session({
     saveUninitialized: true,
     secret: 'topsecret'
 }))
+
+app.use(flash());
+
 
 app.use(function (req, res, next) {
     res.locals.session = req.session;

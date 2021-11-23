@@ -18,20 +18,56 @@ router.get('/profile/:id', (req, res, next) => {
                 user: user,
                 role: role, 
                 name: name,
-                style: 'profile.css'
+                style: 'profile.css',
+                success: req.flash('success'),
+                error: req.flash('error')
             });
         })
         .catch(next)
 });
-router.put('/:id', function (req, res, next) {
+router.put('/profile/:id', function (req, res, next) {
     user.updateOne({ _id: req.params.id }, req.body)
         .then(() => {
             res.cookie('nameUser', req.body.name);
+            req.flash('success', 'Cập nhật thành công!')
             res.redirect('back');
         })
         .catch(next);
 
 })
 
+router.put('/profile/change-password/:id', function (req, res, next) {
+    const {oldPass, newPass} = req.body;
+    const id = req.params.id;
+
+    user.findById(id)
+    // Kiem tra mat khau cu
+    .then( async function (user) {
+        const passwordValid = await bcrypt.compare(oldPass, user.password);
+        if (!passwordValid) {
+            return false;
+        }
+        else {
+            const hashPassword = await bcrypt.hash(newPass, 10);
+            return hashPassword;
+        }
+    })
+    .then(function(pass) {
+        if (pass) {
+            user.updateOne({ _id: req.params.id }, {password: pass})
+            .then(function() {
+                req.flash('success', 'Cập nhật thành công!')
+                res.redirect('back');
+            })
+        }
+        else {
+            req.flash('error', 'Thất bại!')
+            return res.redirect('back');
+        }
+        
+    })
+    .catch(next)
+})
+    
 
 module.exports = router;

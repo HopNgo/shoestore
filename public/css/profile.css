@@ -21,26 +21,26 @@
     padding-right: 8px;
 }
 
-.menu ul li a {
+.menu ul li p {
     text-decoration: none;
     display: block;
     padding: 8px 8px;
-    border-radius: 4px;
+    border-radius: 6px;
     color: rgb(90, 90, 90);
 }
 
-.menu ul li a i {
+.menu ul li p i {
     margin-right: 10px;
     color: rgb(90, 90, 90);
 
 }
 
-.menu ul li.active a {
+.menu ul li.active p {
     background-color: #e8f0fe;
     color: #2f69bb;
 
 }
-.menu ul li.active a i {
+.menu ul li.active p i {
     color: #1a73e8;
 }
 
@@ -48,11 +48,28 @@
     padding-top: 40px;
     margin-left: 40px;
     width: 75%;
+    display: none;
 }
+
+.profile__general.active {
+    display: block;
+}
+
 .profile__general .heading {
     font-size: 28px;
     margin-bottom: 20px;
 }
+
+.profile__general .success {
+    color: #00A149;
+    font-size: 24px;
+}
+
+.profile__general .error {
+    color: red;
+    font-size: 24px;
+}
+
 
 .profile__general .heading button {
     color: white;
@@ -83,22 +100,45 @@ table tr td:nth-child(3) {
 }
 
 
-.profile__general form {
+.profile__general #form-profile {
     display: none;
 }
 
-.profile__general form.active {
+.profile__general #form-profile.active {
     display: block;
 }
-
+.profile__general form .form-group {
+    position: relative;
+}
 .profile__general form input {
-    padding: 6px 16px;
+    padding: 10px 16px;
     border-radius: 4px;
     border: 1px solid #bbb;
     outline: none;
     font-size: 18px;
     width: 100%;
 }
+
+.profile__general .form-group .eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+}
+
+.profile__general input:hover {
+    border: 1px solid #000;
+}
+
+.profile__general input:focus {
+    border: 1px solid #1a73e8 ;
+    box-shadow: 0 0 0 1px #1a73e8;
+}
+
+
 
 .profile__general form button {
     color: white;
@@ -110,3 +150,13 @@ table tr td:nth-child(3) {
     cursor: pointer;
     margin-top: 10px;
 }
+
+.profile__general.change-password form {
+    background-color: #F0F2F5;
+}
+
+.profile__general.change-password table {
+    width: 600px;
+    margin: 0 auto;
+}
+

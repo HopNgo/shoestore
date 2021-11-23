@@ -4,23 +4,31 @@
             <div class="menu">
                 <ul>
                     <li class="active">
-                        <a href=""><i class="fas fa-cog"></i>Chung</a>
-                        <span>{{message}}</span>
+                        <p><i class="fas fa-cog"></i>Chung</p>
                     </li>
                     <li>
-                        <a href=""><i class="fas fa-shield-alt"></i>Đổi mật khẩu</a>
+                        <p><i class="fas fa-shield-alt"></i>Đổi mật khẩu</p>
                     </li>
                 </ul>
             </div>
-            <div class="profile__general">
-                <h2 class="heading">Thông tin tài khoản chung <button class="edit-profile">Chỉnh sửa</button></h2>
+            <div class="profile__general active">
+                <h2 class="heading">
+                    Thông tin tài khoản chung 
+                    <button class="edit-profile">Chỉnh sửa</button> 
+                    {{#if success}}
+                        <span class="success">{{success}}</span>
+                    {{/if}}
+                     {{#if error}}
+                        <span class="error">{{error}}</span>
+                    {{/if}}
+                </h2>
                 <hr>
                 <table>
                     <tr>
                         <th>Họ tên</th>
                         <td>{{user.name}}</td>
                         <td rowspan="2">
-                                <form method="POST" action="/{{user._id}}?_method=PUT" id="form-profile">
+                                <form method="POST" action="/profile/{{user._id}}?_method=PUT" id="form-profile">
                                     <label for="name">Họ tên</label>
                                     <input type="text" name="name" id="name" value="{{user.name}}">
                                     <button type="submit" class="submit">Cập nhật</button> 
@@ -31,16 +39,101 @@
                         <td>{{user.address.province}}-{{user.address.district}}-{{user.address.subDistrict}}</td>
                 </table>
             </div>
+            <div class="profile__general change-password">
+                <h2 class="heading">Đổi mật khẩu</h2>
+                <hr>
+                <form class="form-change-password" method="POST" action="/profile/change-password/{{user._id}}?_method=PUT">
+                    <table>
+                        <tr>
+                            <th>Mật khẩu hiện tại</th>
+                            <td>
+                               <div class="form-group">
+                                    <input type="password" name="oldPass" class="old-pass">
+                                    <i class="fas fa-eye-slash eye"></i>
+                               </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Mật khẩu mới</th>
+                            <td>
+                                <div class="form-group">
+                                    <input type="password" name="newPass" class="new-pass">
+                                    <i class="fas fa-eye-slash eye"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Nhập lại mật khẩu mới</th>
+                            <td>
+                                <div class="form-group">
+                                    <input type="password" class="confirm-new-pass">
+                                    <i class="fas fa-eye-slash eye"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" class="submit btn-change-password">Cập nhật</button> </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
 <script>
+
     const formProfile = document.getElementById('form-profile');
     const btnEdit = document.querySelector('.edit-profile');
+    const menuItems = document.querySelectorAll('.menu li')
+    const profileGeneral = document.querySelectorAll('.profile__general');
+    
+   menuItems.forEach(function(item, index) {
+       item.onclick = (e) => {
+            const menuItemActive = document.querySelector('.menu li.active')
+            const profileGeneralActive = document.querySelector('.profile__general.active');
 
+            menuItemActive.classList.remove('active')
+            e.currentTarget.classList.toggle('active')
+
+            profileGeneralActive.classList.remove('active')
+            profileGeneral[index].classList.toggle('active')
+        }
+    })
+ 
     btnEdit.onclick = function() {
         formProfile.classList.toggle('active');
     }
+
+
+
+    //show/hide password
+    const eyeSlashList = document.querySelectorAll('.eye')
+    eyeSlashList.forEach(function(eyeSlash, index) {
+        eyeSlash.onclick = (e) => {
+            console.log(e.target)
+            e.target.classList.toggle('fa-eye')
+            e.target.classList.toggle('fa-eye-slash')
+            const formGroup = e.target.parentElement
+            const formControl = formGroup.children[0];
+            if (formControl.type == 'text') {
+                formControl.type = 'password'
+            } else {
+                formControl.type = 'text'
+            }
+        }
+    })
+
+    const btnSubmitChangePassword = document.querySelector('.submit.btn-change-password')
+    const formChangePassword = document.querySelector('.form-change-password')
+    
+    formChangePassword.addEventListener('submit', function(e) {
+       // e.preventDefault();
+        const newPassValue = formChangePassword.querySelector('.new-pass').value
+        const confirmNewPassValue = formChangePassword.querySelector('.confirm-new-pass').value
+        //if (confirmNewPassValue != newPassValue) {
+         //   alert('Không trùng!')
+        //}
+    })
+    
 </script>
 
