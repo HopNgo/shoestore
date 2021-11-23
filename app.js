@@ -26,6 +26,7 @@ const removeProductCartRouter = require('./routes/removeProductCart');
 const orderSuccessRouter = require('./routes/orderSuccess');
 
 const profileRouter = require('./routes/profile');
+const flash = require('connect-flash');
 
 //session
 app.use(session({
@@ -34,12 +35,15 @@ app.use(session({
     secret: 'topsecret'
 }))
 
+app.use(flash());
+
+
 app.use(function (req, res, next) {
     res.locals.session = req.session;
     next();
 })
 // path database
-mongoose.connect('mongodb://localhost:27017/Shop1', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cookieParser('mysecret'));
 // view engine setup
