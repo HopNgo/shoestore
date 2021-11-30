@@ -53,6 +53,7 @@ app.engine('handlebars', handlebars({
         sum: (a, b) => a + b,
         discount: (a) => a * 10 / 100,
         totalOrder: (a) => a - (a * 10 / 100) + 30,
+        ifeq: (a, b) => {return a == b},
     }
 }));
 app.set('view engine', 'handlebars');

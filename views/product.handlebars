@@ -16,7 +16,6 @@
             {{#if brand}}
             <h1 id="heading-brand">{{brand}}</h1>
             {{/if}}
-
             <div class="filter">
                     <p>Bộ lọc<i class="fas fa-chevron-down"></i></p>
                     <ul>
@@ -61,39 +60,42 @@
             </div>
             {{/each}}
         </div>
+        
+            <div id="pagination" class="pages">
+                
+            </div>
         </div>
 
-        <div class="pages">
-            <ul>
-                <li>
-                    <button>&lt;</button>
-                </li>
-                <li>
-                    <button class="active">1</button>
-                </li>
-                <li>
-                    <button>2</button>
-                </li>
-                <li>
-                    <button>3</button>
-                </li>
-                <li>
-                    <button>...</button>
-                </li>
-                <li>
-                    <button>7</button>
-                </li>
-                <li>
-                    <button>&gt;</button>
-                </li>
-            </ul>
-        </div>
     </section>  
     <!-- sản phẩm mới nhất end  -->
 
-
+<input type="hidden" id="current-page" value="{{currentPage}}">
+<input type="hidden" id="total-page" value="{{totalPage}}">
+<input type="hidden" id="type" value="{{type}}">
 </main>
+<script>
+    const pagination = document.getElementById('pagination');
 
+    const totalPage = document.getElementById('total-page').value;
+    const currentPage = document.getElementById('current-page').value;
+    const type = document.getElementById('type').value;
+    const btnPages = document.querySelectorAll('.pages li a');
+    let html = `<ul>`;
+    if (totalPage > 1) {
+        for (i = 1;i <= totalPage; i++) {
+            if (i == currentPage)
+            html += `<li>
+                        <a href="/${type}?page=${i}" class="active">${i}</a>
+                    </li>`;
+            else html += `<li>
+                            <a href="/${type}?page=${i}">${i}</a>
+                        </li>`;
+        }
+        html += `</ul>`;
+        pagination.innerHTML = html;
+    }
+  
+</script>
 <script>
     const headingType = document.getElementById('heading-type')
     const headingGender = document.getElementById('heading-gender')

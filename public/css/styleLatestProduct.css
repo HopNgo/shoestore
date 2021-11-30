@@ -9,6 +9,7 @@
 
 main .latest-products {
   margin-top: 150px;
+  margin-bottom: 100px;
 }
 
 
@@ -136,18 +137,18 @@ main .latest-products .product-list .product-item button:hover {
   background-image: linear-gradient(to left, #fa9e1b, #8d4fff);
   transform: scale(1.05);
 }
-main .latest-products > .pages {
+main .latest-products .pages {
   position: absolute;
-  right: 0;
-  transform: translateX(-25%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-main .latest-products > .pages > ul > li {
+main .latest-products .pages ul li {
   list-style-type: none;
   display: inline-block;
 }
 
-main .latest-products > .pages > ul button {
+main .latest-products .pages ul a {
   padding: 4px 16px;
   border: none;
   border-radius: 10px;
@@ -155,14 +156,15 @@ main .latest-products > .pages > ul button {
   cursor: pointer;
   color: rgb(58, 56, 56);
   font-weight: bold;
+  text-decoration: none;
 }
 
-main .latest-products > .pages > ul .active {
+main .latest-products .pages ul li a.active {
   background-color: var(--primary-color);
   color: white;
 }
 
-main .latest-products > .pages > ul button:hover {
+main .latest-products .pages ul a:hover {
   background-color: var(--primary-color);
   color: white;
 }
