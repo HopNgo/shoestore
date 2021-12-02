@@ -10,18 +10,32 @@ router.get('/gender/:slug', function (req, res, next) {
     if (role == "user") {
         role = "";
     }
-
+    var page = req.query.page;
+    page = parseInt(page);
+    if (!page || page < 1)
+        page = 1;
+    const productPerPage = 4;        
+    const skip = (page - 1) * productPerPage;
     homeproduct.find({ gender: gender })
-        .then(products => res.render('product', { 
-            products: multipleMongooseToObject(products), 
-            name: name, 
-            role: role,
-            userid: req.cookies.userid,
-            style: 'styleLatestProduct.css',
-            responsive: 'responseLatestProduct.css',
-            gender: gender
-
-        }));
+        .skip(skip)
+        .limit(productPerPage)
+        .then(products => { 
+            homeproduct.countDocuments({gender: gender})
+            .then(total => {
+                res.render('product', { 
+                    products: multipleMongooseToObject(products), 
+                    totalPage: Math.ceil(total / productPerPage),
+                    currentPage: page,
+                    name: name, 
+                    role: role,
+                    userid: req.cookies.userid,
+                    style: 'styleLatestProduct.css',
+                    responsive: 'responseLatestProduct.css',
+                    gender: gender
+            })
+            
+        })
+    });
 })
 
 

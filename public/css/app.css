@@ -151,6 +151,7 @@ main > .latest-products .product-list {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 main > .latest-products .product-list .product-item {

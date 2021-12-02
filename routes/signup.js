@@ -12,7 +12,7 @@ router.post('/signup', (req, res, next) => {
     const { name, email, password, province, district, subDistrict } = req.body;
     user.findOne({ email: email }, async function (err, data) {
         if (data) {
-            res.render('signup', { message: "* Tài khoản đã tồn tại" })
+            res.render('signup', { message: "* Tài khoản đã tồn tại" , style: 'login.css'})
             return;
         } else {
             const hashPassword = await bcrypt.hash(password, 10);

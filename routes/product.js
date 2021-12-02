@@ -10,7 +10,7 @@ router.get('/:product', function (req, res, next) {
     if (role == "user") {
         role = "";
     }
-    
+   
     var page = req.query.page;
     page = parseInt(page);
     if (!page || page < 1)
