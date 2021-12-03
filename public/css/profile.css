@@ -21,7 +21,10 @@
 .menu ul li {
   padding-right: 8px;
 }
-
+.menu ul li:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 .menu ul li p {
   text-decoration: none;
   display: block;
@@ -79,7 +82,9 @@
   cursor: pointer;
   margin-left: 20px;
 }
-
+.profile__general .heading button:hover {
+  opacity: 0.8;
+}
 .profile__general table {
   width: 100%;
 }
@@ -101,12 +106,18 @@ table tr td:nth-child(3) {
 .profile__general #form-profile {
   display: none;
 }
+.profile__general #form-profile-address {
+  display: none;
+}
+.profile__general #form-profile-address.active {
+  display: block;
+}
 
 .profile__general #form-profile.active {
   display: block;
 }
 .profile__general form .form-input {
-    position: relative;
+  position: relative;
 }
 .profile__general form input {
   padding: 10px 16px;
@@ -146,10 +157,12 @@ table tr td:nth-child(3) {
   cursor: pointer;
   margin-top: 10px;
 }
-
+.profile__general form button:hover {
+  opacity: 0.8;
+}
 .profile__general.change-password form {
-    background-color: #F0F2F5;
-    font-size: 20px;
+  background-color: #f0f2f5;
+  font-size: 20px;
 }
 
 .profile__general.change-password table {
@@ -158,22 +171,31 @@ table tr td:nth-child(3) {
 }
 
 .profile__general.change-password .form-group.validate-success .form-control {
-    border: 1px solid #00A149;
-    box-shadow: 0 0 0 1px #00A149;
+  border: 1px solid #00a149;
+  box-shadow: 0 0 0 1px #00a149;
 }
 
-.profile__general.change-password .form-group.validate-error .form-control  {
-    border: 1px solid red;
-    box-shadow: 0 0 0 1px red;
+.profile__general.change-password .form-group.validate-error .form-control {
+  border: 1px solid red;
+  box-shadow: 0 0 0 1px red;
 }
 
 .profile__general.change-password .form-group__message {
-    font-size: 16px;
-    margin-top: 6px;
-    color: red;
-    display: none;
+  font-size: 16px;
+  margin-top: 6px;
+  color: red;
+  display: none;
 }
 
-.profile__general.change-password .form-group.validate-error .form-group__message {
-    display: block;
+.profile__general.change-password
+  .form-group.validate-error
+  .form-group__message {
+  display: block;
+}
+.profile__general table td #form-profile-address .province {
+  padding: 8px 25px;
+}
+.profile__general table td #form-profile-address .district {
+  margin: 10px 0;
+  padding: 8px 30px;
 }

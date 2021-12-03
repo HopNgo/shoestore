@@ -1,98 +1,96 @@
 footer {
   background-color: #f0f2f5;
-  margin-top: 40px;
-
+  margin-top: 80px;
 }
-footer .footer-body{
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 18px;
-    line-height: 1.7;
-    padding: 20px 0px;
-  }
-  
-  footer .footer-col {
-    width: calc(calc(100% / 3));
-  }
-  
-  footer .footer-col h3 {
-    font-size: 24px;
-    color: #fa9e1b;
-  }
-  
-  footer .footer-col h3 i {
-    margin-right: 10px;
-  }
-  
-  footer .footer-col .address p {
-    font-weight: bold;
-  }
-  
-  footer .footer-col ul li {
-    list-style-type: none;
-  }
-  
-  footer .footer-col ul li a {
-    text-decoration: none;
-    color: black;
-  }
-  footer .footer-col:not(:first-child) ul li a {
-    font-weight: bold;
-  }
-  
-  footer .footer-col ul li a i {
-    margin-right: 10px;
-    width: 24px;
-  }
-  
-  footer .footer-col .subscribe {
-    margin-bottom: 30px;
-  }
-  footer .footer-col .subscribe input {
-    padding: 8px 12px;
-    width: 70%;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  
-  footer .footer-col .subscribe button {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 5px black;
-    cursor: pointer;
-    color: white;
-  }
-  
-  footer .footer-col ul li a .fa-facebook-f {
-    color: #4267b2;
-  }
-  
-  footer .footer-col ul li a .fa-twitter {
-    color: #1da1f2;
-  }
-  footer .footer-col ul li a .fa-instagram {
-    color: #fcaf45;
-  }
-  footer .footer-col ul li a .fa-youtube {
-    color: #ff0000;
-  }
-  
-  footer .credit {
-    margin-top: 20px;
-    background-color: #ffffff;
-    width: 100%;
-    text-align: center;
-    padding: 6px 0;
-  }
-  
-  footer .credit p {
-    font-size: 20px;
-  }
-  
+footer .footer-body {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 18px;
+  line-height: 1.7;
+  padding: 20px 0px;
+}
+
+footer .footer-col {
+  width: calc(calc(100% / 3));
+}
+
+footer .footer-col h3 {
+  font-size: 24px;
+  color: #fa9e1b;
+}
+
+footer .footer-col h3 i {
+  margin-right: 10px;
+}
+
+footer .footer-col .address p {
+  font-weight: bold;
+}
+
+footer .footer-col ul li {
+  list-style-type: none;
+}
+
+footer .footer-col ul li a {
+  text-decoration: none;
+  color: black;
+}
+footer .footer-col:not(:first-child) ul li a {
+  font-weight: bold;
+}
+
+footer .footer-col ul li a i {
+  margin-right: 10px;
+  width: 24px;
+}
+
+footer .footer-col .subscribe {
+  margin-bottom: 30px;
+}
+footer .footer-col .subscribe input {
+  padding: 8px 12px;
+  width: 70%;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+footer .footer-col .subscribe button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 5px black;
+  cursor: pointer;
+  color: white;
+}
+
+footer .footer-col ul li a .fa-facebook-f {
+  color: #4267b2;
+}
+
+footer .footer-col ul li a .fa-twitter {
+  color: #1da1f2;
+}
+footer .footer-col ul li a .fa-instagram {
+  color: #fcaf45;
+}
+footer .footer-col ul li a .fa-youtube {
+  color: #ff0000;
+}
+
+footer .credit {
+  margin-top: 20px;
+  background-color: #ffffff;
+  width: 100%;
+  text-align: center;
+  padding: 6px 0;
+}
+
+footer .credit p {
+  font-size: 20px;
+}
 
 @media screen and (min-width: 48em) and (max-width: 63.9375em) {
   footer .footer-body {
@@ -106,7 +104,6 @@ footer .footer-body{
     margin-bottom: 10px;
   }
 }
-
 
 @media only screen and (min-width: 25.875em) and (max-width: 46em) {
   footer .footer-body {
@@ -131,7 +128,6 @@ footer .footer-body{
     text-align: justify;
   }
 }
-
 
 @media only screen and (min-width: 20em) and (max-width: 25.8125em) {
   footer .footer-body {

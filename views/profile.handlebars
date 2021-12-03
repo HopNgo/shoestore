@@ -13,13 +13,13 @@
             </div>
             <div class="profile__general active">
                 <h2 class="heading">
-                    Thông tin tài khoản chung 
-                    <button class="edit-profile">Chỉnh sửa</button> 
+                    Thông tin tài khoản chung
+                    <button class="edit-profile">Chỉnh sửa</button>
                     {{#if success}}
-                        <span class="success">{{success}}</span>
+                    <span class="success">{{success}}</span>
                     {{/if}}
-                     {{#if error}}
-                        <span class="error">{{error}}</span>
+                    {{#if error}}
+                    <span class="error">{{error}}</span>
                     {{/if}}
                 </h2>
                 <hr>
@@ -27,32 +27,51 @@
                     <tr>
                         <th>Họ tên</th>
                         <td>{{user.name}}</td>
-                        <td rowspan="2">
-                                <form method="POST" action="/profile/{{user._id}}?_method=PUT" id="form-profile">
-                                    <label for="name">Họ tên</label>
-                                    <input type="text" name="name" id="name" value="{{user.name}}">
-                                    <button type="submit" class="submit">Cập nhật</button> 
-                                </form>
+                        <td>
+                            <form method="POST" action="/profile/{{user._id}}?_method=PUT" id="form-profile">
+                                <label for="name">Họ tên</label>
+                                <input type="text" name="name" id="name" value="{{user.name}}">
+                                <button type="submit" class="submit">Cập nhật</button>
+                            </form>
                         </td>
                     </tr>
-                        <th>Địa chỉ</th>
-                        <td>{{user.address.province}}-{{user.address.district}}-{{user.address.subDistrict}}</td>
+                    <th>Địa chỉ</th>
+                    <td>{{user.address.province}}-{{user.address.district}}-{{user.address.subDistrict}}</td>
+                    <td>
+                        <form method="POST" action="/profile/change-address/{{user._id}}?_method=PUT"
+                            id="form-profile-address">
+                            <label for="address">Địa chỉ</label> <br>
+                            <select class="province" name="calc_shipping_provinces" required="">
+                                <option value="">Tỉnh / Thành phố</option>
+                            </select>
+                            <select class="district" name="calc_shipping_district" required="">
+                                <option value="">Quận / Huyện</option>
+                            </select>
+                            <input class="billing_address_1" name="province" type="hidden" value="">
+                            <input class="billing_address_2" name="district" type="hidden" value="">
+                            <input class="calc_shipping_sub-district" name="subDistrict" type="text"
+                                placeholder="Thông tin phường / xã">
+                            <button type="submit" class="submit">Cập nhật</button>
+                        </form>
+                    </td>
                 </table>
             </div>
             <div class="profile__general change-password">
                 <h2 class="heading">Đổi mật khẩu</h2>
                 <hr>
-                <form class="form-change-password" method="POST" action="/profile/change-password/{{user._id}}?_method=PUT">
+                <form class="form-change-password" method="POST"
+                    action="/profile/change-password/{{user._id}}?_method=PUT">
                     <table>
                         <tr>
                             <th>Mật khẩu hiện tại</th>
                             <td>
-                               <div class="form-group">
-                                   <div class="form-input">
-                                        <input class="form-control" type="password" name="oldPass" class="old-pass" required>
+                                <div class="form-group">
+                                    <div class="form-input">
+                                        <input class="form-control" type="password" name="oldPass" class="old-pass"
+                                            required>
                                         <i class="fas fa-eye-slash eye"></i>
-                                   </div>
-                               </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -90,12 +109,13 @@
 <script>
 
     const formProfile = document.getElementById('form-profile');
+    const formProfileAddress = document.getElementById('form-profile-address');
     const btnEdit = document.querySelector('.edit-profile');
     const menuItems = document.querySelectorAll('.menu li')
     const profileGeneral = document.querySelectorAll('.profile__general');
-    
-   menuItems.forEach(function(item, index) {
-       item.onclick = (e) => {
+
+    menuItems.forEach(function (item, index) {
+        item.onclick = (e) => {
             const menuItemActive = document.querySelector('.menu li.active')
             const profileGeneralActive = document.querySelector('.profile__general.active');
 
@@ -106,16 +126,17 @@
             profileGeneral[index].classList.toggle('active')
         }
     })
- 
-    btnEdit.onclick = function() {
+
+    btnEdit.onclick = function () {
         formProfile.classList.toggle('active');
+        formProfileAddress.classList.toggle('active');
     }
 
 
 
     //show/hide password
     const eyeSlashList = document.querySelectorAll('.eye')
-    eyeSlashList.forEach(function(eyeSlash, index) {
+    eyeSlashList.forEach(function (eyeSlash, index) {
         eyeSlash.onclick = (e) => {
             console.log(e.target)
             e.target.classList.toggle('fa-eye')
@@ -134,12 +155,12 @@
     const formChangePassword = document.querySelector('.form-change-password')
 
     function validateConfirmPassword() {
-        const newPassValue          = formChangePassword.querySelector('.new-pass').value;
-        const confirmNewPassValue   = formChangePassword.querySelector('.confirm-new-pass').value;
+        const newPassValue = formChangePassword.querySelector('.new-pass').value;
+        const confirmNewPassValue = formChangePassword.querySelector('.confirm-new-pass').value;
 
-        const formGroupNewPass              = formChangePassword.querySelector('.new-pass').parentElement.parentElement
-        const formGroupConfirmNewPass       = formChangePassword.querySelector('.confirm-new-pass').parentElement.parentElement
-        
+        const formGroupNewPass = formChangePassword.querySelector('.new-pass').parentElement.parentElement
+        const formGroupConfirmNewPass = formChangePassword.querySelector('.confirm-new-pass').parentElement.parentElement
+
         if (confirmNewPassValue != newPassValue) {
             if (formGroupNewPass.classList.contains('validate-success')) {
                 formGroupNewPass.classList.remove('validate-success')
@@ -161,25 +182,101 @@
             formGroupNewPass.classList.add('validate-success')
             formGroupConfirmNewPass.classList.add('validate-success')
             return true;
-        }   
+        }
     }
 
-    const newPassInput  = formChangePassword.querySelector('.new-pass');
-    const confirmNewPassInput  = formChangePassword.querySelector('.confirm-new-pass');
+    const newPassInput = formChangePassword.querySelector('.new-pass');
+    const confirmNewPassInput = formChangePassword.querySelector('.confirm-new-pass');
 
-    
-    confirmNewPassInput.addEventListener('blur', function() {
+
+    confirmNewPassInput.addEventListener('blur', function () {
+        validateConfirmPassword()
+        newPassInput.addEventListener('blur', function () {
             validateConfirmPassword()
-            newPassInput.addEventListener('blur', function() {
-                validateConfirmPassword()
-            })
+        })
     })
-    formChangePassword.addEventListener('submit', function(e) {
+    formChangePassword.addEventListener('submit', function (e) {
         e.preventDefault();
         let isTrue = validateConfirmPassword()
         if (isTrue)
             formChangePassword.submit();
     })
-    
+
 </script>
 
+<script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js'></script>
+<script>
+    localStorage.removeItem('address_2_saved');
+    localStorage.removeItem('district');
+    localStorage.removeItem('address_1_saved');
+    if (address_2 = localStorage.getItem('address_2_saved')) {
+        $('select[name="calc_shipping_district"] option').each(function () {
+            if ($(this).text() == address_2) {
+                $(this).attr('selected', '')
+            }
+        })
+        $('input.billing_address_2').attr('value', address_2)
+    }
+    if (district = localStorage.getItem('district')) {
+        $('select[name="calc_shipping_district"]').html(district)
+        $('select[name="calc_shipping_district"]').on('change', function () {
+            var target = $(this).children('option:selected')
+            target.attr('selected', '')
+            $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+            address_2 = target.text()
+            $('input.billing_address_2').attr('value', address_2)
+            district = $('select[name="calc_shipping_district"]').html()
+            localStorage.setItem('district', district)
+            localStorage.setItem('address_2_saved', address_2)
+        })
+    }
+    $('select[name="calc_shipping_provinces"]').each(function () {
+        var $this = $(this),
+            stc = ''
+        c.forEach(function (i, e) {
+            e += +1
+            stc += '<option value=' + e + '>' + i + '</option>'
+            $this.html('<option value="">Tỉnh / Thành phố</option>' + stc)
+            if (address_1 = localStorage.getItem('address_1_saved')) {
+                $('select[name="calc_shipping_provinces"] option').each(function () {
+                    if ($(this).text() == address_1) {
+                        $(this).attr('selected', '')
+                    }
+                })
+                $('input.billing_address_1').attr('value', localStorage.getItem('address_1_saved'));
+            }
+            $this.on('change', function (i) {
+                i = $this.children('option:selected').index() - 1;
+                var str = '',
+                    r = $this.val()
+                if (r != '') {
+                    arr[i].forEach(function (el) {
+                        str += '<option value="' + el + '">' + el + '</option>'
+                        $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>' + str)
+                    })
+                    var address_1 = $this.children('option:selected').text()
+                    var district = $('select[name="calc_shipping_district"]').html()
+                    localStorage.setItem('address_1_saved', address_1)
+                    localStorage.setItem('district', district)
+                    $('select[name="calc_shipping_district"]').on('change', function () {
+                        var target = $(this).children('option:selected')
+                        target.attr('selected', '')
+                        $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+                        var address_2 = target.text()
+                        $('input.billing_address_2').attr('value', address_2)
+                        district = $('select[name="calc_shipping_district"]').html()
+                        localStorage.setItem('district', district)
+                        localStorage.setItem('address_2_saved', address_2)
+                    })
+                } else {
+                    $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>')
+                    district = $('select[name="calc_shipping_district"]').html()
+                    localStorage.setItem('district', district)
+                    localStorage.removeItem('address_1_saved', address_1)
+                }
+                $('input.billing_address_1').attr('value', localStorage.getItem('address_1_saved'));
+            })
+        })
+    })
+
+</script>

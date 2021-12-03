@@ -38,37 +38,56 @@ router.put('/profile/:id', function (req, res, next) {
 })
 
 router.put('/profile/change-password/:id', function (req, res, next) {
-    const {oldPass, newPass} = req.body;
+    const { oldPass, newPass } = req.body;
     const id = req.params.id;
 
     user.findById(id)
-    // Kiem tra mat khau cu
-    .then( async function (user) {
-        const passwordValid = await bcrypt.compare(oldPass, user.password);
-        if (!passwordValid) {
-            return false;
-        }
-        else {
-            const hashPassword = await bcrypt.hash(newPass, 10);
-            return hashPassword;
-        }
-    })
-    .then(function(pass) {
-        if (pass) {
-            user.updateOne({ _id: req.params.id }, {password: pass})
-            .then(function() {
-                req.flash('success', 'Cập nhật thành công!')
-                res.redirect('back');
-            })
-        }
-        else {
-            req.flash('error', 'Thất bại!')
-            return res.redirect('back');
-        }
-        
-    })
-    .catch(next)
+        // Kiem tra mat khau cu
+        .then(async function (user) {
+            const passwordValid = await bcrypt.compare(oldPass, user.password);
+            if (!passwordValid) {
+                return false;
+            }
+            else {
+                const hashPassword = await bcrypt.hash(newPass, 10);
+                return hashPassword;
+            }
+        })
+        .then(function (pass) {
+            if (pass) {
+                user.updateOne({ _id: req.params.id }, { password: pass })
+                    .then(function () {
+                        req.flash('success', 'Cập nhật thành công!')
+                        res.redirect('back');
+                    })
+            }
+            else {
+                req.flash('error', 'Thất bại!')
+                return res.redirect('back');
+            }
+
+        })
+        .catch(next)
 })
-    
+
+router.put('/profile/change-address/:id', (req, res, next) => {
+    const id = req.params.id;
+    const { province, district, subDistrict } = req.body;
+    const data = {
+        province: province,
+        district: district,
+        subDistrict: subDistrict
+    }
+    user.updateOne({ _id: id }, {
+        address: data,
+    })
+        .then(() => {
+            res.cookie('address', data);
+            req.flash('success', 'Cập nhật thành công!')
+            res.redirect('back');
+        })
+        .catch(next);
+
+})
 
 module.exports = router;
