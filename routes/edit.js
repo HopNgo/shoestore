@@ -17,7 +17,8 @@ router.get('/admin/manage/edit/:id', function (req, res, next) {
             productEdit: mongooseToObject(data), 
             name: name, 
             role: role,
-            style: 'edit.css'
+            style: 'edit.css',
+            baseURL: '../../'
         });
     })
 

@@ -5,6 +5,9 @@
         <input type="text" name="name" id="name" placeholder="Tên giày...">
         <label for="img"> Link Ảnh </label>
         <input type="text" name="img" id="img" placeholder="Link Ảnh...">
+        <div>
+            <img src="{{productEdit.img}}" style="max-width: 100px" id="product-img-display">
+        </div>
         <label for="costOld"> Giá cũ </label>
         <input type="text" name="costOld" id="costOld" placeholder="Giá Cũ...">
         <label for="costOld"> Giá Mới </label>
@@ -127,5 +130,14 @@
         })
 
 
+    })
+</script>
+
+
+<script>
+    const inputImg = document.getElementById('img');
+    const imgDisplay = document.getElementById('product-img-display');
+    inputImg.addEventListener('change', function() {
+        imgDisplay.src = this.value
     })
 </script>

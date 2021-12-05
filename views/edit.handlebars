@@ -5,6 +5,9 @@ action="/admin/manage/edit/{{productEdit._id}}?_method=PUT">
     <input type="text" name="name" id="name" value="{{productEdit.name}}" placeholder="Tên giày...">
     <label for="img"> Link Ảnh </label>
     <input type="text" name="img" id="img" value="{{productEdit.img}}" placeholder="Link Ảnh...">
+    <div>
+        <img src="{{productEdit.img}}" style="max-width: 300px" id="product-img-display">
+    </div>
     <label for="costOld"> Giá cũ </label>
     <input type="text" name="costOld" id="costOld" value="{{productEdit.costOld}}" placeholder="Giá Cũ...">
     <label for="costOld"> Giá Mới </label>
@@ -35,3 +38,11 @@ action="/admin/manage/edit/{{productEdit._id}}?_method=PUT">
     <input type="submit" value="Lưu lại">
     <a href="/admin/manage" class="btn-cancel"> Cancel</a>
 </form>
+
+<script>
+    const inputImg = document.getElementById('img');
+    const imgDisplay = document.getElementById('product-img-display');
+    inputImg.addEventListener('change', function() {
+        imgDisplay.src = this.value
+    })
+</script>
